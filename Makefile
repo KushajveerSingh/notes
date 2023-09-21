@@ -14,7 +14,6 @@ upgrade:
 	conda env export -n mkdocs > conda_env.yml
 
 sync:
-	mkdocs build
 	git add -A
 	git commit -m '$(m)'
 	git push origin main
