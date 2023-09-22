@@ -1,22 +1,72 @@
 site_name: Notes
+repo_name: KushajveerSingh/notes
+repo_url: https://github.com/KushajveerSingh/notes
 
 theme:
   name: material
   custom_dir: overrides
   palette:
     - media: "(prefers-color-scheme: dark)"
+      primary: brown
       accent: yellow
       scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     - media: "(prefers-color-scheme: light)"
-      accent: yellow
       scheme: default
       toggle:
         icon: material/brightness-7 
         name: Switch to dark mode
-  
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/images/favicon.ico
+  logo: assets/images/logo.jpeg
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - search.share
+    - header.autohide
+    - navigation.footer
+    - content.action.view
+
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+
+extra:
+  analytics:
+    provider: google
+    property: G-FXFJECD70Y
+  social:
+    - icon: material/home
+      link: https://kushajveersingh.com
+      name: Personal Website
+    - icon: material/github
+      link: https://github.com/KushajveerSingh
+      name: GitHub
+    - icon: material/linkedin
+      link: https://linkedin.com/in/kushaj
+      name: LinkedIn
+  generator: false
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+  - md_in_html
+
+copyright: Copyright &copy; 2023 - Present Kushajveer Singh
+
 extra_css:
   - assets/stylesheets/extra.css
 

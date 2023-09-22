@@ -1,6 +1,6 @@
 clean_install:
 	conda create -n mkdocs python=3.10
-	pip install mkdocs-material
+	pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
 	mkdocs new .
 
 install_from_repo:
