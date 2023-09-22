@@ -1,7 +1,7 @@
 site_name: Notes
 repo_name: KushajveerSingh/notes
 repo_url: https://github.com/KushajveerSingh/notes
-edit_uri: blob/main/docs/
+edit_uri: edit/main/docs/
 
 theme:
   name: material
@@ -35,7 +35,7 @@ theme:
     - search.share
     - header.autohide
     - navigation.footer
-    - content.action.view
+    - content.action.edit
     - content.code.copy
     - content.code.annotate
     - content.tabs.link
