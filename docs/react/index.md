@@ -1,6 +1,5 @@
 ---
-title: HTML
-weight: 0
+title: React
 ---
 
 TODO Create an index of all things in the repo.

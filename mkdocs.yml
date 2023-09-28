@@ -14,19 +14,19 @@ theme:
   name: material
   custom_dir: overrides
   palette:
-    - media: "(prefers-color-scheme: dark)"
+    - media: '(prefers-color-scheme: dark)'
       primary: brown
       accent: yellow
       scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
+    - media: '(prefers-color-scheme: light)'
       primary: indigo
       accent: indigo
       scheme: default
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
   font:
     text: Roboto
@@ -69,6 +69,7 @@ plugins:
   - table-reader
   - mkdocs-nav-weight:
       index_weight: 0
+      section_renamed: true
 
 extra:
   analytics:

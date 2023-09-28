@@ -9,7 +9,7 @@ hide:
   - footer
 
 search:
-  boose: 2 # Increase the search ranking of the page
+  boost: 2 # Increase the search ranking of the page
   exclude: true # To exclude from search
 
 weight: 0 # Lower number means it appears higher

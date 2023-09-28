@@ -1,5 +1,5 @@
 ---
-title: Go Overview
+title: Go
 weight: 1
 ---
 

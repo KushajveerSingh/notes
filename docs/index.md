@@ -1,6 +1,5 @@
 ---
-title: Notes
-weight: -1
+title: Overview
 ---
 
-TODO: Create an Index of all things in the repo.
+TODO Create an index of all things in the repo.
