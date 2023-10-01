@@ -1,6 +1,5 @@
 ---
 title: Images
-weight: 2
 ---
 
 `#!html <img src="image.jpg" loading="lazy" alt="...">` - requests for images are made when they are close to the user's viewport, deferring them from the initial page load. Just don't use it on images are at the top of the layout, and more likely to be in the user's viewport when the page is first loaded.

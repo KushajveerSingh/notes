@@ -1,6 +1,5 @@
 ---
 title: Let's Go
-weight: 2
 ---
 
 ## Creating a module
