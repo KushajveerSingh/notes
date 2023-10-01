@@ -1,7 +1,3 @@
----
-title: Tailwind CSS
----
-
 ## Tools
 - VsCode [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) plugin.
 - Prettier plugin for sorting class names. Install it using `npm install -D prettier prettier-plugin-tailwindcss` and then add it to `prettier.config.js`

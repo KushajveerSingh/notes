@@ -1,7 +1,3 @@
----
-title: Images
----
-
 `#!html <img src="image.jpg" loading="lazy" alt="...">` - requests for images are made when they are close to the user's viewport, deferring them from the initial page load. Just don't use it on images are at the top of the layout, and more likely to be in the user's viewport when the page is first loaded.
 
 Also, use `fetchpriority` attribute to control the priority. Set it to `low` for images that are only shown on user interaction (even if the image fall's within the user's viewport), or use `fetchpriority='high'` to priortize an image that will be immediately visible in the viewport as soon as the page is rendered.

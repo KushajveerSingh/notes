@@ -1,7 +1,3 @@
----
-title: "Don't Make Me Think"
----
-
 **Don't Make me Think Revisited A Common Sense Approach to Web and Mobile Usability** by _Steve Krug_ (2014, 3rd edition).
 
 _Usability_ - A person of average (or even below average) ability and experience can figure out how to use the thing to accomplish something without it begin more trouble that it's worth.

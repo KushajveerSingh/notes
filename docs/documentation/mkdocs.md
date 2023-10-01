@@ -1,7 +1,3 @@
----
-title: MkDocs
----
-
 - Install `pip install mkdocs`.
 - Create new project `mkdocs new my-project`.
 - Configure using `my-project/mkdocs.yml`.
