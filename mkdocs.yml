@@ -139,6 +139,7 @@ nav:
   - UI/UX:
       - Books:
           - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
+          - Forms That Word: ui_ux/books/forms_that_work.md
       - Logo Design: ui_ux/logo_design/logo_design.md
       - Affinity Designer: ui_ux/affinity_designer.md
   - HTML:
