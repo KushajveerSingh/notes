@@ -139,9 +139,8 @@ nav:
   - UI/UX:
       - Books:
           - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
-      - Logo Design:
-          - Logo Design Academy: ui_ux/logo_design/logo_design_academy.md
-          - Affinity Designer: ui_ux/logo_design/affinity_designer.md
+      - Logo Design: ui_ux/logo_design/logo_design.md
+      - Affinity Designer: ui_ux/affinity_designer.md
   - HTML:
       - Images: html/images.md
   - CSS:
