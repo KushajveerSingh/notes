@@ -138,7 +138,7 @@ nav:
     - MkDocs: documentation/mkdocs.md
   - UI/UX:
     - Figma: ui_ux/figma.md
-    - Logo Design: ui_ux/logo_design/logo_design.md
+    - Logo Design: ui_ux/logo_design.md
     - Affinity Designer: ui_ux/affinity_designer.md
     - Books:
       - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
