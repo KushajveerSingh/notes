@@ -133,22 +133,24 @@ extra_javascript:
 nav:
   - Overview: index.md
   - Prompting:
-      - ChatGPT: prompting/chatgpt.md
+    - ChatGPT: prompting/chatgpt.md
   - Documentation:
-      - MkDocs: documentation/mkdocs.md
+    - MkDocs: documentation/mkdocs.md
   - UI/UX:
-      - Books:
-          - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
-          - Forms That Word: ui_ux/books/forms_that_work.md
-      - Logo Design:
-          - Logo Design Academy: ui_ux/logo_design/logo_design_academy.md
-          - Affinity Designer: ui_ux/logo_design/affinity_designer.md
+    - Figma: ui_ux/figma.md
+    - Logo Design: ui_ux/logo_design/logo_design.md
+    - Affinity Designer: ui_ux/affinity_designer.md
+    - Books:
+      - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
+      - Forms That Word: ui_ux/books/forms_that_work.md
   - HTML:
-      - Images: html/images.md
+    - Images: html/images.md
   - CSS:
-      - Tailwind CSS: css/tailwind_css.md
+    - Tailwind CSS: css/tailwind_css.md
   - React:
-      - Next.js: react/nextjs.md
+    - Next.js: react/nextjs.md
   - Go:
-      - Books:
-          - Let's Go: go/books/lets_go.md
+    - Books:
+      - Let's Go: go/books/lets_go.md
+  - Postgres:
+    - Postgres: postgres/postgres.md
