@@ -1,3 +1,5 @@
+ for no script, add a descriptive line why your site would not work, and provide an alternative to use ublock origin and tell them what external site resources you are using on the current website.
+
 ```html
 <!DOCTYPE html><!-- Use standard mode, to disable quirks mode for IE and Netscape -->
 <html lang="en"> <!-- en-US, fr-CA -->
@@ -206,6 +208,12 @@ The first link on page is skip to content link
 
 It helps people skip the main content instead of tabbing through the navigation bar. This should be visible when focused, otherwise you can hide it `.visually-hidden:not(:focus):not(:active)`.
 
+## Template
+
+```html
+
+```
+
 ## <!DOCTYPE html\>
 
 Use standard mode and prevent browser from switching to quirks mode, which is used for Internet Explorer 5 and Netscape Navigator 4.
@@ -235,7 +243,9 @@ Shown in browser's title bar.
 - Don't use keyword blobs as that negatively impacts SEO.
 - Try to make the titles as unique as possible within your own site.
 
-For accessibility, people will read the page title and infer the contents of the page. So make the title unique to every page of the website, ideally surfacing the primary purpose of the first page, followed by the name of the website.
+For accessibility, people will read the page title and infer the contents of the page. So make the title unique to every page of the website, ideally surfacing the primary purpose of the page, followed by the name of the website.
+
+Titles can also be used alongside forms. If form refreshes the page, then title can be used to show the errors also.
 
 ```html
 <title>
@@ -255,8 +265,8 @@ For accessibility, people will read the page title and infer the contents of the
 </style>
 
 <style title="Alternative">
-  /* Not much used, but some browsers have the option of selecting
-  from multiple stylesheets.
+  /* Not used much, but browsers can show users a list of stylesheets to
+  use for the current page.
   https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets */
 </style>
 ```
@@ -268,9 +278,12 @@ Not used much. Used to set the base URL for relative links on the page.
 ```html
 <base href="https://www.example.com" />
 <base target="_blank" />
+
+<!-- Resolves to "https://www.example.com/something.html" -->
+<a href="something.html">Link</a>
 ```
 
-For an in-page anchor `!#html <ahref="#some-id">`, using `<base>` would trigger an HTTP request to the base URL with the fragment attached. Due to this reason using `<base>` is  avoided.
+For an in-page anchor `<a href="#some-id">`, using `<base>` would trigger an HTTP request to the base URL with the fragment attached. Due to this reason using `<base>` is  avoided.
 
 ### <link\>
 
@@ -329,7 +342,7 @@ Used to *link* external resources to the webpage. Specify the relationship using
     <link rel="help" href="help-page.html" />
     ```
 
-- `icon` - specify the favicon image which is shown in the title bar of browser, or when a website is bookmarked on desktop.
+- `icon` - specify the favicon image which is shown in the title bar of browser, or when a website is bookmarked on desktop (using SVG is preferred).
 
     The image can be controlled by adding the attributes
 
@@ -349,7 +362,7 @@ Used to *link* external resources to the webpage. Specify the relationship using
       href="favicon.png"
     />
 
-    <!-- For iOS devices use "apple-touch-icon" -->
+    <!-- For iOS devices-->
     <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -403,13 +416,14 @@ Used to *link* external resources to the webpage. Specify the relationship using
     ```html
     <link rel="prev" href="example.com/article-part-1.html">
     ```
+
 - `stylesheet` - to import external stylesheets
 
     ```html
     <link rel="stylesheet" href="main.css" />
     ```
 
-- `dns-prefetch` - to improve page load times.
+- `dns-prefetch` - to improve page load times, by doing DNS lookup to get the IP address of the resource.
     - If the page is going to make requests to external domains (due to scripts, styleheets, images, libraries), then use `dns-prefetch` to instruct the browser to resolve the domain name in advance.
     - Put this tag near the start of `<head>`, so the browser can start DNS resolution as soon as possible.
     - You do not need this tag for resources that are accessed immeditaly as the page load's (like stylesheets, scripts) as the browser will automatically perform DNS resolution for them.
@@ -468,6 +482,7 @@ Used to *link* external resources to the webpage. Specify the relationship using
     ```
 
     The following types (`as`) can be preloaded
+
     - `audio`
     - `document` - HTML document intended to be embedded by a `<frame>`, `<iframe>`
     - `embed`
@@ -516,12 +531,13 @@ Used to *link* external resources to the webpage. Specify the relationship using
     ```
 
     Working
+
     - I write a blog post on `kushajveersingh.com/post1.html`.
     - Someone reads my post, and links it in their own article at `some-other-domain.com/post.html` using `<a href="kushajveersingh.com/post1.html>post</a>`.
     - Now the software used for publishing the `some-other-domain.com/post.html` (like Wordpress), will check the external links and check if they have a `<link rel="pingback">` defined and send a message to that.
     - My `server-script.php` which accepts these requests, would verify the correctness of the ping (to ensure that it is not spam), and then do something with it.
 
-- `search` - (not used now) link to external search tool or plugin that can be used to search the current website, generally used with OpenSearch by Amazon.
+- `search` - (not used much) link to external search tool or plugin that can be used to search the current website, generally used with OpenSearch by Amazon.
 
     Opensearch was popular back in 2010s, but now there are better alternatives like ElasticSearch.
 
@@ -536,7 +552,7 @@ Used to *link* external resources to the webpage. Specify the relationship using
 
 Other useful attributes of `<link>`
 
-- `crossorigin` - make requets with CORS or CORS disabled
+- `crossorigin` - make Cross-Origin Resource Sharing (CORS) requests with or without sending credentials (cookies, HTTP headers)
 
     ```html
     <!-- The server requests HTTP headers, and specifying 'use-credentials'
@@ -581,3 +597,69 @@ Other useful attributes of `<link>`
         ```
 
 ### <meta\>
+
+- `charset` - define the character encoding for the document (applies to css, js as well, meaning you have use emojis as variable names in JS). The default encoding in *windows-1252*.
+
+    ```html
+    <!-- Should be the first element under <head> so that title can
+    use the encoding -->
+    <meta charset="utf-8" />
+    ```
+
+- `http-equiv` - Takes the following values
+    - `content-security-policy` - to set Content Security Policy (CSP) (defined in HTTP spec) for the page, to help prevent cross-site scripting (XSS) and code injection attacks.
+
+        For example, you can specify which sources of content (scripts, styles, images) are allowed to be laoded and executed by the browser
+
+        ```html
+        <meta
+        http-equiv="content-security-policy"
+        content="default-src 'self'; img-src https://cdn.example.com*"
+        />
+        ```
+
+        List of all the `content` values can be found in [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) page of HTTP.
+
+    - `default-style` - used when providing alternate stylesheets, to set the default.
+
+        ```html
+        <link rel="stylesheet" href="default-style.css" title="DefaultStyle" />
+        <link rel="stylesheet" href="alternate-style.css" title="AlternateStyle" />
+
+        <meta http-equiv="default-style" content="DefaultStyle" />
+        ```
+    
+    - `refresh`
+        - to auto-refresh the current page after `content` number of seconds (useful in live dashboards or monitoring tools, news/control feeds, session management to keep the user logged in while user is idle and start a timer, queuing systems where people are placed in a virtual queue and their position needs to be updated live).
+
+            ```html
+            <meta http-equiv="refresh" content="5" />
+            ```
+
+        - to redirect to a different URL after `content` number of seconds (this is discouraged in modern web) and has negative impact on SEO. Use `window.location.href = 'new url'` instead.
+
+            ```html
+            <meta http-equiv="refresh" content="5; url=https://example.com" />
+            ```
+
+- `name` - to provide document level metadata. The following `name` values are supported in HTML spec
+
+    - `application-name` - use to provide a short name to *web application*. Do not use with website or content sites. Similar to `<title>` but title can be a long string, describing the current page, while `application-name` is supposed to be a short concise name (that will be shown in title bar or when bookmarked).
+
+        ```html
+        <meta name="application-name" content="MyApp" />
+        ```
+
+    - `author` - name of document author
+    - `description` - short and accurate summary of the content of the page
+
+## <body\>
+
+```html
+<body>
+  ...
+</body>
+```
+
+Body has many attributes to specify event handlers like `onafterprint`, `onblur` and much more, but the browser support for them is not there. A better alternative is to use `window.addEventListener('afterprint', () => {})` instead.
+
