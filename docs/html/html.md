@@ -1,83 +1,7 @@
+Project that checks for missing CSP headers using either HTTP or html (check csper)
+
  for no script, add a descriptive line why your site would not work, and provide an alternative to use ublock origin and tell them what external site resources you are using on the current website.
 
-```html
-<!DOCTYPE html><!-- Use standard mode, to disable quirks mode for IE and Netscape -->
-<html lang="en"> <!-- en-US, fr-CA -->
-<head>
-  <!-- charset should be first, so that title can use this encoding -->
-  <meta charset="utf-8" /> <!-- Default is windows-1252 -->
-
-  <title>Title of page</title>
-  
-  <!-- Make the width of the content, the same as width of the screen. You can include
-  initial-scale=1, user-scalable=1 but these values default to accessible values. -->
-  <meta name="viewport" content="width=device-width" />
-  
-  <!-- Can be in body, but put in head for performance, as you want the browser to know
-  how to render the content, to prevent unnecessary repainting if content is loaded first. -->
-  <link rel="stylesheet" href="styles.css" />
-  <!-- By default browser looks for "favicon.ico" in top-level directory. -->
-  <link rel="icon" sizes="16x16 32x32 48x48" type="image/png" href="/images/favicon.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/mlwicon.png" /> <!-- for iOS devices -->
-  <link rel="mask-icon" href="/images/mlwicon.svg" color="#226DAA" /> <!-- pinned tabs on macOS -->
-  
-  <!-- When someone booksmarks yours site, these icons would be shown -->
-  <link rel="apple-touch-startup-image" href="icons/ios-portrait.png" media="orientation: portrait" />
-  <link rel="apple-touch-startup-image" href="icons/ios-landscape.png" media="orientation: landscape" />
-  <!-- Title to use when saved on homescreen on mobile -->
-  <meta name="apple-mobile-web-app-title" content="MLW" />
-  <meta name="application-name" content="MLW" />
-
-  <!-- Link can be used to provide alternate versions of your site -->
-  <link rel="alternate" href="https://www.example.com/fr/" hreflang="fr-FR" /> <!-- different translation -->
-  <link rel="alternate" type="application/x-pdf" href="https://example.com/site.pdf" /> <!-- pdf version -->
-  <link rel="alternate" type="application/rss_xml" href="..." />
-  <link rel="alternate stylesheet" title="Basic" href="basic.css" /> <!-- alternate stylesheet that user can select -->
-  
-  <!-- Define 'content policy' using 'content-security-policy', to specify allowed
-  server origins, script endpoints, to help prevent cross-site scripting attacks. -->
-  <meta http-equiv="content-security-policy" content="default-src https:" />
-  
-  <!-- Named meta tags for SEO -->
-  <!-- <meta name="keywords"> No longer useful, as search engines ignore it now.-->
-  <meta name="description" content="This is displayed under page's title in search results." />
-  <!-- Tell search engines to not index site and follow any links (bots can ignore the
-  request also) -->
-  <meta name="robots" content="noindex, nofollow" /> <!-- "index, follow" is default -->
-  <!-- Define color to use for browser interface (title bar, tab bar) -->
-  <meta name="theme-color" content="#226DAA" /> <!-- can use media query also -->
-  
-  <!-- Open graph protocol -->
-  <!-- Facebook -->
-  <meta property="og:title" content="Title" />
-  <meta property="og:description" content="Description" /> <!-- up to three sentences that summarize the post -->
-  <meta property="og:image" content="image.png" />
-  <meta property="og:image:alt" content="Image alt" />
-  
-  <!-- Twitter -->
-  <meta name="twitter:title" content="Title" />
-  <meta name="twitter:description" content="Description" />
-  <meta name="twitter:url" content="https://www.example.com/?src=twitter" />
-  <meta name="twitter:image:src" content="image.png" />
-  <meta name="twitter:image:alt" content="Image alt" />
-  <meta name="twitter:creator" content="@estellevw" />
-  <meta name="twitter:site" content="@perfmattersconf" />
-
-  <!-- If you create multiple translations, then which page to use as the authoritative source
-  or use it to link to original source on blogs -->
-  <link rel="canonical" href="https://www.example.com" />
-  
-  <!-- Put all the link tags related to PWA in manifest.json to reduce
-  the number of tags in the header. -->
-  <link rel="manifest" href="manifest.json" />
-
-  <script src="default.js" defer></script>
-</head>
-<body>
-  
-</body>
-</html>
-```
 
 ## <script\>
 
@@ -87,76 +11,10 @@
 - `defer` - HTML rendering is not blocked during the download, and JS executes after the document has finished rendering.
 - `async` - HTML rendering is not blocked during the download, but the rendering is paused while the JS is executed.
 
-## Semantic HTML
-
-`<header>` - Dependeing on where the header is defined it can have different `roles`. At the top level, it is considered site `banner`, if it is nested in `<main>`, `<article>`, then it just identifies as the header for that section.
-
-```html
-<header>
-  <h1>Title</h1>
-  <nav>
-    <a href="">Register</a>
-  </nav>
-</header>
-```
 
 `<nav>` - if it is part of site heading, then it is considered main navigation for the site. If it is nested in an `<article>`, `<section>`, it is considered internal navigation for that section only.
 
-`<footer>` - if it is the site footer, then it should contain information you want on every page, such as copyright statement, contact information, links to privacy and cookie policies. In other tags, footer has no role.
-
-```html
-<footer>
-  <p>&copy;2022. All rights reserved</p>
-  <address>Contact info of individuals or organizations, not physical mailing addresses.</address>
-</footer>
-```
-
-Holy grail layout
-```html
-<body>
-  <header>Header</header>
-  <nav>On left site</nav>
-  <main>
-    <article></article>
-    <article></article>
-  </main>
-  <aside>On right side</aside>
-  <footer>At bottom</footer>
-</body>
-```
-
-`<main>` - single main per page to identify main content of the document.
-
-`<aside>` - generally in a sidebar or call-out box, to show content that is indirectly related to the document's main content (like some info about CSS on a HTML page)
-
-`<article>` - complete, self-contained, section of content that is independently reusable (similar to newspaper articles).
-
-`<section>` - to put generic standalone sections of a document where there is not more specific semantic element to use, and they should have a heading.
-
 `<h1> - <h6>` - avoid skipping heading levelsm, and don't use these to make text large/small. `<hx>` in `<header>` is heading for the site, `<hx>` in `<main>` is heading for the page. If `<h1>` is inside `<article, aside, nav, section>` its font-size would be decremented based on the nesting level.
-
-```html
-<header>
-  <h1>Page title</h1>
-  <nav></nav>
-</header>
-<main>
-  <header>
-    <h1>Content title</h1>
-  </header>
-
-  <section>
-    <h2>Ticket info</h2>
-  </section>
-
-  <section>
-    <h2>What you'll learn</h2>
-  </section>
-</main>
-<footer>
-  <h2></h2>
-</footer>
-```
 
 ## Attributes
 
@@ -300,8 +158,12 @@ Used to *link* external resources to the webpage. Specify the relationship using
     <link
       rel="alternate"
       href="home/pdf"
-      type="application/pdf"
-      title="PDF"
+      type="application/pdf## Attributes
+
+For boolean attributes, like `required`
+
+- If you use it, then it is used.
+
     />
 
     <!-- Add RSS -->
@@ -368,11 +230,12 @@ Used to *link* external resources to the webpage. Specify the relationship using
       sizes="180x180"
       href="favicon.png"
     />
+## Attributes
 
-    <!-- Pinned tabs on macOS -->
-    <link
-      rel="mask-icon"
-      href="icon.svg"
+For boolean attributes, like `required`
+
+- If you use it, then it is used.
+
       color="#226DAA"
     />
 
@@ -387,6 +250,9 @@ Used to *link* external resources to the webpage. Specify the relationship using
       href="icons/ios-landscape.png"
       media="orientation: landscape"
     />
+
+    <!-- Title to use when saved on homescreen on mobile -->
+    <meta name="apple-mobile-web-app-title" content="Title" />
     ```
 
     !!! note "Use MANIFEST.json instead"
@@ -404,27 +270,12 @@ Used to *link* external resources to the webpage. Specify the relationship using
     ```html
     <link rel="manifest" href="manifest.json" />
     ```
+## Attributes
 
-- `next` - when the current page is part of a series, like a blog website. Use `next` to specify the next page in the series.
+For boolean attributes, like `required`
 
-    ```html
-    <link rel="prev" href="example.com/article-part-3.html">
-    ```
-
-- `prev`- similar to `next`. Use it to specify the previous page in the series.
-
-    ```html
-    <link rel="prev" href="example.com/article-part-1.html">
-    ```
-
-- `stylesheet` - to import external stylesheets
-
-    ```html
-    <link rel="stylesheet" href="main.css" />
-    ```
-
-- `dns-prefetch` - to improve page load times, by doing DNS lookup to get the IP address of the resource.
-    - If the page is going to make requests to external domains (due to scripts, styleheets, images, libraries), then use `dns-prefetch` to instruct the browser to resolve the domain name in advance.
+- If you use it, then it is used.
+, then use `dns-prefetch` to instruct the browser to resolve the domain name in advance.
     - Put this tag near the start of `<head>`, so the browser can start DNS resolution as soon as possible.
     - You do not need this tag for resources that are accessed immeditaly as the page load's (like stylesheets, scripts) as the browser will automatically perform DNS resolution for them.
     - This tag is used for resources that will be fetched conditionally or due to user interactions, as it can save latency time.
@@ -607,7 +458,19 @@ Other useful attributes of `<link>`
     ```
 
 - `http-equiv` - Takes the following values
-    - `content-security-policy` - to set Content Security Policy (CSP) (defined in HTTP spec) for the page, to help prevent cross-site scripting (XSS) and code injection attacks.
+    - `content-security-policy` - to set Content Security Policy (CSP) (defined in HTTP spec) for the page, to help prevent cross-site scripting (XSS) and data injection attacks.
+
+        Three type of XSS attacks
+
+        1. Stored XSS - a user can add malicious script on the target server (e.g. by posting it in the forum, comment section). And when the user visits the affected page, the script runs in their browser.
+        2. Reflected XSS - attacker crafts a URL containing malicious script input. The victim clicks on the URL, and the malicious code is sent to the server, and the server reflects the input back in the page content (e.g. in an error message or search result) and the victim's browser executes the malicious script.
+        3. DOM-based XSS - attacker injects a payload directly into the DOM. For example if you have JS to read the part of URL after the hash
+
+            ```js
+            x.innerHTML = document.location.hash.substring(1);
+            ```
+
+            Then the above code can be exploited by using the URL `http://vulnerable-website.com/page#<img src=x onerror=alert('XSS')>`
 
         For example, you can specify which sources of content (scripts, styles, images) are allowed to be laoded and executed by the browser
 
@@ -619,6 +482,10 @@ Other useful attributes of `<link>`
         ```
 
         List of all the `content` values can be found in [Content-Security-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) page of HTTP.
+
+        !!! note "Setting HTTP headers is preferred"
+
+            Setting HTTP headers through the backend server is preferred over using `<meta>` tags. Use `<meta>` for cases, when site is being deployed statically.
 
     - `default-style` - used when providing alternate stylesheets, to set the default.
 
@@ -651,7 +518,127 @@ Other useful attributes of `<link>`
         ```
 
     - `author` - name of document author
+
+        ```html
+        <meta name="author" content="Kushaj" />
+        ```
+
     - `description` - short and accurate summary of the content of the page
+
+        ```html
+        <meta name="description" content="Lorem ipsum ..." />
+        ```
+
+    - `generator` - if you used a software to generate the current site like Wordpress, Astro
+
+        ```html
+        <meta name="generator" content="Astro" />
+        ```
+
+    - `keywords` - comman separated list of keywords to describe the page. Do not use now, as browsers ignore this, as people started exploiting the keywords.
+
+        ```html
+        <meta name="keywords" content="html,css" />
+        ```
+
+    - `referrer` - set it through HTTP header instead. When you click a link to an external site, then your info (i.e. the link from which the user came) would be shared with the external site. To prevent this you can use *referrer*.
+
+        ```html
+        <!-- Send no info -->
+        <meta name="referrer" content="no-referrer" />
+
+        <!-- (default) Send full URL, except when going from HTTPS to HTTP-->
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+
+        <!-- Send origin info like scheme, host, port -->
+        <meta name="referrer" content="origin" />
+
+        <!-- For same-origin destination send everything, for cross-origin
+        send 'origin' -->
+        <meta name="referrer" content="origin-when-cross-origin" />
+
+        <!-- Send full URL (stripped of parameters) for everything -->
+        <meta name="referrer" content="unsafe-url" />
+
+        <!-- Send full info, when destination is same origin, otherwise send
+        no info -->
+        <meta name="referrer" content="same-origin" />
+
+        <!-- Send 'origin' when destination is as secure as host HTTP(S) -> HTTPS -->
+        <meta name="referrer" content="strict-origin" />
+
+        <!-- Send full URL when on the same origin, and moving to the same security level
+        HTTP(S) -> HTTPS -->
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        ```
+
+    - `theme-color` - To set the color of surrounding user interface like the browser's address bar or toolbar.
+
+        ```html
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="cyan"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="black"
+        />
+        ```
+
+    - `color-scheme` - set the default theme for the page to light/dark
+
+        ```html
+        <meta name="theme-color" content="dark" />
+
+        <!-- Tell browser document prefers dark mode but does render in light mode also. -->
+        <meta name="theme-color" content="dark light" />
+
+        <meta name="theme-color" content="only light" />
+        ```
+
+        And use `(prefers-color-scheme: dark)` to define the styles.
+
+    - `viewport` - give hint to the browser about the intial size of `viewport`.
+
+        - `width` - (pixel value or `device-width`) width of viewport you want the website to be rendered at
+        - `height` - (pixel value or `device-height`) (not used by browsers)
+        - `initial-scale` - 0.0 to 10.0, to define the ratio between device width (in portrait mode, or height in landscape mode) and the viewport size.
+        
+        ```html
+        <!-- No need of specifying initial-scale, user-scalable as these are set to accessible
+        values by default -->
+        <meta name="viewport" content="width=device-width" />
+        ```
+    
+    - `robots` - give hint to the search engines to not index site and follow links. The default is to allow indexing and following of links.
+
+        ```html
+        <!-- "index, follow" is default -->
+        <meta name="robots" content="noindex, nofollow" />
+        ```
+
+        The web crawlers will automatically look for `robots.txt` file in the root directory. So you can skip this tag if `robots.txt` file is used.
+
+[OpenGraph](https://ogp.me/) protocol tags can be defined, to control how the pages when posted on Facebook, Twitter
+
+```html
+ <!-- Facebook -->
+<meta property="og:title" content="Title" />
+<meta property="og:description" content="Description" /> <!-- up to three sentences that summarize the post -->
+<meta property="og:image" content="image.png" />
+<meta property="og:image:alt" content="Image alt" />
+  
+<!-- Twitter -->
+<meta name="twitter:title" content="Title" />
+<meta name="twitter:description" content="Description" />
+<meta name="twitter:url" content="https://www.example.com/?src=twitter" />
+<meta name="twitter:image:src" content="image.png" />
+<meta name="twitter:image:alt" content="Image alt" />
+<meta name="twitter:creator" content="@estellevw" />
+<meta name="twitter:site" content="@perfmattersconf" />
+```
 
 ## <body\>
 
@@ -663,3 +650,209 @@ Other useful attributes of `<link>`
 
 Body has many attributes to specify event handlers like `onafterprint`, `onblur` and much more, but the browser support for them is not there. A better alternative is to use `window.addEventListener('afterprint', () => {})` instead.
 
+## Scripting
+
+### <canvas\>
+
+### <noscript\>
+
+### <script\>
+
+
+## Content sectioning
+
+Organize the document content into logical pieces.
+
+### <header\>
+
+At the top level (when parent is 'body'), it defines the site `banner` (logo, company name, search feature, global navigation), and if it is nested in `<main>`, `<article>`, it identifies as header for that section.
+
+```html
+<header>
+  <h1>Main Page Title</h1>
+  <img src="" />
+</header>
+```
+
+### <footer\>
+
+When used for the whole site (i.e. parent is `body`), it should contain info that should be displayed on every page like copyright statement, contact info, links to privacy and cookie policies. In other places, footer has no special meaning.
+
+```html
+<body>
+  <header>...</header>
+  <main>...</main>
+  <footer>...</footer>
+</body>
+```
+
+### <main\>
+
+Single use per page to identify main content of the document, or the central functionality of an application.
+
+This content should expand upon the central topic of a document, so do not include things that are repeated on multiple pages like sidebars, navigation links, copyright info, site logos, search forms.
+
+```html
+<body>
+  <main>...</main>
+</body>
+```
+
+### <article\>
+
+Self-contained, section of content that is independently reusable (like forum post, blog, product card, user-submitted comment)
+
+Put `<h1> - <h6>` as the first child element to identify the article.
+
+```html
+<article>
+  <h1>Something</h1>
+  <article>
+    <h2>Sub post</h2>
+    <p>...</p>
+  </article>
+  <article>
+    <h2>Sub post</h2>
+    <p>...</p>
+  </article>
+</article>
+```
+
+### <aside\>
+
+Generally in a sidebar or call-out box, to show content that is indirectly related to the document's main content (like some info about CSS on a HTML page).
+
+```html
+<aside>
+  <p>...</p>
+</aside>
+```
+
+### <section\>
+
+To put generic standalone sections of a document where there is not more specific semantic element to use. Each section should have a heading.
+
+Exampes include, a list of search results, or a map display and its controls.
+
+Use this workflow to think
+
+- If content is standalone, that makes sense as a standalone piece like blog, use `<article>`.
+- If content provides info that is relevant to the main content but not directly part of it, like related links, author bio, use `<aside>`.
+- If content is the main content of the page use `<main>`.
+- If element needs to be used just for styling purposes, use `<div>`.
+
+```html
+<section>
+  <h2>Heading</h2>
+  <p>...</p>
+</section>
+```
+
+Cases when heading is not required in `<section>`, are typically found in application/UI sections.
+
+```html
+<!-- Secondary navigation -->
+<section>
+  <a href="#">Previous article</a>
+  <a href="#">Next article</a>
+</section>
+
+<!-- Button bar for controlling your app -->
+<section>
+  <button class="reply">Reply</button>
+  <button class="reply-all">Reply to all</button>
+  <button class="fwd">Forward</button>
+  <button class="del">Delete</button>
+</section>
+```
+
+### <address\>
+
+To provide contact info, like physical address, URL, email address, phone number, social media handle, etc. Include the name of person to which the contact refers to inside `<address>`.
+
+```html
+<address>
+  You can contact author at
+  <a href="">www.example.com</a>.
+  
+  If you see any bugs, please <a href="...">contact me</a>.
+  You may also want to visit:
+  Street, city, zip
+</address>
+```
+
+### <search\>
+
+Part of document that contains form controls or other content related to performing a search or filtering operation. It is not for showing the search results.
+
+```html
+<!-- When using a form -->
+<header>
+  <h1>Movie</h1>
+  <search>
+    <form action="./search/">
+      <input type="search" ... />
+      <button type="submit">Search</button>
+    </form>
+  </search>
+</header>
+
+<!-- When using JS to filter results -->
+<search>
+  <label>
+    Find and filter your query
+    <input type="search" ... />
+  </label>
+  <label>
+    <input type="checkbox" ... />
+    Exact matches only
+  </label>
+</search>
+
+<!-- When using multiple 'search' tags on a page, use a title -->
+<header>
+  <search title="Website search">...</search>
+</header>
+<main>
+  <search title="Cars">...</search>
+</main>
+```
+
+### <nav\>
+
+If it is part of site heading, then it is considered main navigation for the site. If it is nested in an `<article>`, it is considered internal navigation for that section only.
+
+```html
+<nav>
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- 'nav' is required to provide links, which can also be in a form of paragraphs -->
+<nav>
+  <h2>Navigation</h2>
+  <p>
+    You are on home page. Check <a href="#">my blog</a>.
+  </p>
+</nav>
+```
+
+### <hgroup\>
+
+Represents a heading (`<h1> - <h6>`) and related content (`<p>`). You can group subheadings, alternative title, or tagline.
+
+```html
+<hgroup>
+  <h1>Docs</h1>
+  <p>Last updated on date</p>
+</hgroup>
+```
+
+### <h1\> - <h6\>
+
+- Do not use these to make text large/small. HTML's purpose if to define the structure of the page, and CSS's purpose is to style.
+- Avoid skipping heading levels. People using screen reading software, will quickly jump from heading to heading to determine the content of the page, so don't skip heading levels as it might confuse the people as to where the missing heading is.
+- `<hx>` in `<main>` is heading for the page. When nesting `<h1>` inside `<article>, <aside>, <nav>` its font-size woudl be decremented based on the nesting level.
