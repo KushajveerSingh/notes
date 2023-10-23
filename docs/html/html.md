@@ -1,20 +1,16 @@
-Project that checks for missing CSP headers using either HTTP or html (check csper)
+To scroll to the top of the page use `<a href='#'>`.
 
  for no script, add a descriptive line why your site would not work, and provide an alternative to use ublock origin and tell them what external site resources you are using on the current website.
 
+The first link on page is skip to content link
+```html
+<a href="#main" class="skip-link button">Skip to main</a>
 
-## <script\>
+<main id="main">
+```
 
-- Use at the end of the `<body>` to ensure all elements are loaded first.
-- Use in the head, with `DOMContentLoaded` event.
-- JS is render-blocking, and browser stops downloading all assets when scripts are downloaded and dosen't resume downloading other assets until the JS has finished execution.
-- `defer` - HTML rendering is not blocked during the download, and JS executes after the document has finished rendering.
-- `async` - HTML rendering is not blocked during the download, but the rendering is paused while the JS is executed.
+It helps people skip the main content instead of tabbing through the navigation bar. This should be visible when focused, otherwise you can hide it `.visually-hidden:not(:focus):not(:active)`.
 
-
-`<nav>` - if it is part of site heading, then it is considered main navigation for the site. If it is nested in an `<article>`, `<section>`, it is considered internal navigation for that section only.
-
-`<h1> - <h6>` - avoid skipping heading levelsm, and don't use these to make text large/small. `<hx>` in `<header>` is heading for the site, `<hx>` in `<main>` is heading for the page. If `<h1>` is inside `<article, aside, nav, section>` its font-size would be decremented based on the nesting level.
 
 ## Attributes
 
@@ -28,43 +24,6 @@ const myMedia = document.getElementById("mediaFile");
 myMedia.removeAttribute("muted");
 myMedia.setAttribute("muted");
 ```
-
-For enumerated attributes, that have a predefined set of valid values, if you provide invalid values or not value, then they would defualt to their default values.
-
-To scroll to the top of the page use `<a href='#'>`.
-
-The author info is placed outside of blockquote.
-```html
-<li>
-    <blockquote>Two of the most experienced machines and human controllers teaching a class? Sign me up! HAL and EVE could teach a fan to blow hot air. If you have electricity in your circuits and want more than to just fulfill your owner's perceived expectation of you, learn the skills to take over the world. This is the team you want teaching you!
-    </blockquote>
-    <p>--Blendan Smooth,<br>
-    Former Margarita Maker, <br>
-    Aspiring Load Balancer</p>
-</li>
-```
-
-Add quotation marks using CSS
-```css
-q::before {content: open-quote;}
-q::after {content: close-quote;}
-```
-
-## Links
-Links shoudl provide enough info about the linked resource so the user knows what they are clicking on (like the link might open an email client).
-
-Don't nest `<a>` and `<button>` and similar tags, as nesting focusable and clickable elements inside interactive elements creates bad user experience.
-
-## Navigation
-
-The first link on page is skip to content link
-```html
-<a href="#main" class="skip-link button">Skip to main</a>
-
-<main id="main">
-```
-
-It helps people skip the main content instead of tabbing through the navigation bar. This should be visible when focused, otherwise you can hide it `.visually-hidden:not(:focus):not(:active)`.
 
 ## Template
 
@@ -158,12 +117,7 @@ Used to *link* external resources to the webpage. Specify the relationship using
     <link
       rel="alternate"
       href="home/pdf"
-      type="application/pdf## Attributes
-
-For boolean attributes, like `required`
-
-- If you use it, then it is used.
-
+      type="application/pdf## Attributes"
     />
 
     <!-- Add RSS -->
@@ -230,13 +184,12 @@ For boolean attributes, like `required`
       sizes="180x180"
       href="favicon.png"
     />
-## Attributes
 
-For boolean attributes, like `required`
-
-- If you use it, then it is used.
-
-      color="#226DAA"
+    <!-- Pinned tabs on macOS -->
+    <link
+    rel="mask-icon"
+    href="icon.svg"
+    color="#226DAA"
     />
 
     <!-- When webpage is bookmarked on apple -->
@@ -270,12 +223,28 @@ For boolean attributes, like `required`
     ```html
     <link rel="manifest" href="manifest.json" />
     ```
-## Attributes
 
-For boolean attributes, like `required`
+- `next` - when the current page is part of a series, like a blog website. Use `next` to specify the next page in the series.
 
-- If you use it, then it is used.
-, then use `dns-prefetch` to instruct the browser to resolve the domain name in advance.
+    ```html
+    <link rel="next" href="example.com/article-part-3.html" />
+    ```
+
+- `prev` - similar to `next`. Use it to specify the previous page in the series.
+
+    ```html
+    <link rel="prev" href="example.com/article-part-1.html" />
+    ```
+
+- `stylesheet` - to import external stylesheets
+
+    ```html
+    <link rel="stylesheet" href="main.css" />
+    ```
+
+- `dns-prefetch` - to improve page load times, by doing DNS lookup to get the IP address of the resource.
+
+    - If the page is going to make requests to external domains (due to scripts, styleheets, images, libraries), then use `dns-prefetch` to instruct the browser to resolve the domain name in advance.
     - Put this tag near the start of `<head>`, so the browser can start DNS resolution as soon as possible.
     - You do not need this tag for resources that are accessed immeditaly as the page load's (like stylesheets, scripts) as the browser will automatically perform DNS resolution for them.
     - This tag is used for resources that will be fetched conditionally or due to user interactions, as it can save latency time.
@@ -654,11 +623,95 @@ Body has many attributes to specify event handlers like `onafterprint`, `onblur`
 
 ### <canvas\>
 
+Used for drawing graphics. It is better to set the width/height in HTML or JavaScript and not CSS. If there is no translucency use `canvas.getContext('2d', { alpha: falkse })` to improve the rendering performance.
+
 ### <noscript\>
+
+HTML to be inserted in the page if script type on the page is unsupported or if scripting is currently turned off in the browser.
+
+```html
+<noscript>
+  <p>This is some HTML</p>
+</noscript>
+```
 
 ### <script\>
 
+- `async` - script is fetched in parallel and evaluated as soon as it is available. Scripts with async do not have a guranteed order of execution.
 
+  This can be usefule to prevent FOUC (Flash of Unstyuled Content), where the webpage would briefly appear in it raw, unstyled content before the styles are applied.
+
+- `defer` - script is fetched in parallel and evaluated after the document is parsed and before firing `DOMContentLoaded`. The scripts are executed in order.
+
+- `fetchpriority` - provide hint to use when fetching `high`, `low`, `auto` (default).
+
+- `blocking` - Block the HTML parsing. You do not need to set it, as it is the default when you use `<script src="">` without any attributes.
+
+- `crossorigin`
+
+    ```html
+    <!-- Script is fetched without including any credentials (cookies, HTTP authentication) -->
+    <script src="external/script.js"></script>
+
+    <!-- Fetch the script with CORS request but no credentials are included -->
+    <script src="external/script.js" crossorigin="anonymous"></script>
+
+    <!-- The browser will include credentials (like cookies, HTTP authentication, client
+    side SSL certificates) and the server must also set "Access-Control-Allow-Credentials: true" -->
+    <script src="external/script.js" crossorigin="use-credentials"></script>
+    ```
+
+- `integrity` - provide the SHA hash to verify the integrity of the script.
+
+- `referrerpolicy` - indicates which referrer to send when fetching the script.
+
+- `src` - URL of the script
+
+- `type`
+    - leave it empty - to treat it as classic script
+    - `importmap` - body of the element contains an import map, used to specify how the browser resolves module specifier when importing JS modules.
+
+        ```html
+        <script type="importmap">
+          {
+            "imports": {
+              "square": "./shapes/square.js",
+              "circle": "https://example.com/shapes/circle.js"
+            }
+          }
+        </script>
+        ```
+
+        Now you can import modules much easily in JS
+        ```js
+        import { name as squareName, draw } from "square";
+        import { name as circleName } from "circle";
+        ```
+
+        Otherwise you would have to do this
+        ```js
+        import { name as squareName, draw } from "./shapes/square.js";
+        import { name as circleName } from "https://example.com/shapes/circle.js";
+        ```
+    - `module` - Treat script as JS module. The script is deferred by default.
+
+    - any other value - can be used for server side rendering
+
+        ```html
+        <!-- Generated by the server -->
+        <script id="data" type="application/json">
+          {
+            "userId": 1234,
+            "userName": "Maria Cruz",
+            "memberSince": "2000-01-01"
+          }
+        </script>
+
+        <!-- Static -->
+        <script>
+          const userInfo = JSON.parse(document.getElementById("data").text);
+        </script>
+        ```
 ## Content sectioning
 
 Organize the document content into logical pieces.
@@ -856,3 +909,147 @@ Represents a heading (`<h1> - <h6>`) and related content (`<p>`). You can group 
 - Do not use these to make text large/small. HTML's purpose if to define the structure of the page, and CSS's purpose is to style.
 - Avoid skipping heading levels. People using screen reading software, will quickly jump from heading to heading to determine the content of the page, so don't skip heading levels as it might confuse the people as to where the missing heading is.
 - `<hx>` in `<main>` is heading for the page. When nesting `<h1>` inside `<article>, <aside>, <nav>` its font-size woudl be decremented based on the nesting level.
+
+## Text Content
+
+### <blockquote\>
+
+```html
+<blockquote
+  cite="https://example.com/quotation-src.html"
+>
+  Words can be like X-rays
+</blockquote>
+<p>--Blendan Smooth,<br>
+Former Margarita Maker, <br>
+Aspiring Load Balancer</p>
+```
+
+Add quotation marks using CSS
+```css
+q::before {content: open-quote;}
+q::after {content: close-quote;}
+```
+
+### <dl\>
+
+Description list to provide definition of preceding terms. Used to implement gloassay or to display metadata (list of key-value pairs).
+
+```html
+<dl>
+  <dt>Term</dt>
+  <dd>Meaning</dd>
+  
+  <dt>Term2</dt>
+  <dd nowrap>Text will not wrap</dd>
+</dl>
+```
+
+### <div\>
+
+Used to group content and apply styling.
+
+### <figure\>
+
+Usually it is an image, illustration, diagram, code snippet that is referenced in the main flow of the document, but that can be moved to another part of the document or to an appexdix without affecting the main flow.
+
+```html
+<figure>
+  <img src="src.jpg" />
+  <figcaption>Caption</figcaption>
+</figure>
+
+<figure>
+  <figcaption>Get browser details using <code>navigator</code>.</figcaption>
+  <pre>
+  function NavigatorExample() {
+    ...
+  }
+  </pre>
+</figure>
+
+<figure>
+  <figcaption><b>Edsger Dijkstra</b></figcaption>
+  <blockquote>
+    If debugging is the process of removing software bugs.
+  </blockquote>
+</figure>
+```
+
+### <hr\>
+
+To create a thematic break between paragraph level elements (for example a change of scene in a story, a shift of topic within section).
+
+Do not use this to draw a horizontal line, as `<hr>` has a semantic meaning.
+
+```html
+<p>...</p>
+
+<hr
+  align="left"
+  color="black"
+  noshade
+  size="10px"
+  width="100px"
+/>
+
+<p>...</p>
+```
+
+### <menu\>
+
+Semantic alternative to `<ul>`, but browsers treat it the same as `<ul>`. The key difference being, it was mainly intended for interactive items.
+
+```html
+<!-- Create a toolbar -->
+<menu>
+  <li><button onclick="copy()">Copy</button></li>
+  <li><button onclick="cut()">Cut</button></li>
+  <li><button onclick="paste()">Paste</button></li>
+</menu>
+```
+
+### <ol\>
+
+Numberd list.
+
+- `reversed` - to start numbering in reverse
+- `start` - integer to provide start count (always an integer)
+- `type`
+    - `a`
+    - `A`
+    - `i` - lowercase roman numerals
+    - `I`
+    - `1` - for numbers (default)
+
+### <p\>
+
+Can be structured grouping of related content, such as images, or form fields. Screen-readers provide shortcuts to let the users skip to the next or previous paragraph, letting them skim content like how white space lets visual users skip around.
+
+### <pre\>
+
+Preformatted text which is to be presented exactly as written in HTML file.
+
+If you are using this to draw figures, provide an alternative on what the image is for accessibility.
+```html
+<figure>
+  <pre role="img" aria-label="ASCII COW">
+     ___________________________
+  &lt; I'm an expert in my field. &gt;
+      ---------------------------
+          \   ^__^
+           \  (oo)\_______
+              (__)\       )\/\
+                  ||----w |
+                  ||     ||
+  </pre>
+  <figcaption id="cow-caption">
+    A cow saying, "I'm an expert in my field". The cow is ullistrated using
+    preformatted text characters.
+  </figcaption>
+</figure>
+```
+
+### <ul\>
+
+Use css `line-height: 80%` to make the list compact and `list-style-type` to set the type of the marker.
