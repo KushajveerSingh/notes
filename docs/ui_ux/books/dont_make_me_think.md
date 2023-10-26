@@ -186,3 +186,23 @@ How to know you have accomplished all the above goals? Perform this test
 The test is important, because more often than not we are put in the middle of the website through outside links and we have never seen the site's navigation scheme before.
 
 ## Ch-7 The Big Bang Theory of Web Design
+
+Home page needs to answer these questions, with very little effort
+
+- What is this?
+    - The users should be able to form the correct impression "This is a site for ___", otherwise they try to force-fit that explanation on to everything they encounter.
+- What can I do here?
+- What do they have there?
+- Why should I be here - and not somewhere else?
+
+On the home page you have three key elements
+
+- Tagline - This is the text next to Site ID. This should be a description of the whole site.
+- Welcome blurb - Paragraph text you see next (with heading and a smaller paragraph text). Don't use mission statement for this.
+- Learn more - This button can navigate users to learn more about the product, and this is where you can do all the explaining. Or use a video.
+
+Tips
+
+- Use as much space as needed. But still keep is short enough to get the point across, and no longer. Just mention a few of the most important ones.
+
+POage 121

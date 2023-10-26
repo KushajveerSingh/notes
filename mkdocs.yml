@@ -139,7 +139,6 @@ nav:
   - UI/UX:
     - Books:
       - Refactoring UI: ui_ux/books/refactoring_ui.md
-      - Forms That Word: ui_ux/books/forms_that_work.md
       - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
     - Figma: ui_ux/figma.md
   - HTML:
