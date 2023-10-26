@@ -132,20 +132,16 @@ extra_javascript:
 
 nav:
   - Overview: index.md
-  - Prompting:
-    - ChatGPT: prompting/chatgpt.md
-  - Documentation:
-    - MkDocs: documentation/mkdocs.md
   - Systen Design:
     - General Tips: system_design/general_tips.md
+  - Documentation:
+    - MkDocs: documentation/mkdocs.md
   - UI/UX:
-    - Figma: ui_ux/figma.md
-    - Logo Design: ui_ux/logo_design.md
-    - Affinity Designer: ui_ux/affinity_designer.md
     - Books:
-      - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
-      - Forms That Word: ui_ux/books/forms_that_work.md
       - Refactoring UI: ui_ux/books/refactoring_ui.md
+      - Forms That Word: ui_ux/books/forms_that_work.md
+      - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
+    - Figma: ui_ux/figma.md
   - HTML:
     - HTML: html/html.md
     - Images: html/images.md
@@ -156,5 +152,6 @@ nav:
   - Go:
     - Books:
       - Let's Go: go/books/lets_go.md
-  - Postgres:
-    - Postgres: postgres/postgres.md
+  - Database:
+    - PostgreSQL:
+      - PostgreSQL: database/postgresql/postgresql.md
