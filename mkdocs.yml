@@ -140,6 +140,7 @@ nav:
   - UI/UX:
     - Books:
       - Refactoring UI: ui_ux/books/refactoring_ui.md
+      - Laws of UX: ui_ux/books/laws_of_ux.md
       - Don't Make Me Think: ui_ux/books/dont_make_me_think.md
     - Figma: ui_ux/figma.md
   - HTML:
@@ -149,6 +150,7 @@ nav:
     - Tailwind CSS: css/tailwind_css.md
   - JavaScript:
     - Tooling:
+      - pnpm: javascript/tooling/pnpm.md
       - Prettier: javascript/tooling/prettier.md
     - React:
       - Next.js: react/nextjs.md

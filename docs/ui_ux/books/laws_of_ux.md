@@ -44,7 +44,7 @@ Be conservative in what you do (our design should be reliable and accessible), b
 - The more we can anticipate and plan for in design, the more resilient the design will be.
 - Accept variable input from users, translating that input to meet your requirements, defining boundaries for input, and providing clear feedback for the user.
 
-## Peak-End  Rule
+## Peak-End Rule
 
 People judge an experience largely based on how they felt at its peak and at its end, rather than on the total sum or average of every moment of the experience.
 
