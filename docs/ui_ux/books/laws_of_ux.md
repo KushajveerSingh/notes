@@ -52,4 +52,80 @@ People judge an experience largely based on how they felt at its peak and at its
 - Identify the moments when your product is most helpful, valuable, or entertaining and design to delight the end user.
 - Remember that people recall negative experiences more vividly than positive ones.
 
-Page 67.
+Example of this is Mailchimp. Before sending an email, a popup is shown with "You are about to send a campaign to ... This is your moment of glory.". This is important because this moment of sending an email is a peak emotional moment that represents the accumulation of all the work that has gone into that email campaign, compounded by the potential fear of failure. The popup uses illustration, subtle animation, humor to defuse a potentially stressful moment.
+
+The peak emotions also happen for negative experiences, like waiting in line. Example of this is Uber, which handles this by focusing on three concepts related to wait time
+
+- Idleness aversion - customers are presented with animation that helps to keep them not only informed but also entertained.
+- Operational transparency - app provides estiamted time of travel and information on how arrival times are calculated.
+- Goal gradient effect - each step of the process is clearly explained so that customers feel they are continously making progress towards their goal of getting a ride.
+
+Journey maps can be used to identify positive/negative peaks
+
+1. Lens - based on the target audience. What scenario they are in and what are their expectations. Example
+
+    Jane (persona) is using a ride-share service app to order a side (scenario) that she expects to arrive at her exact location in 10 minutes or less (expectation).
+
+2. Experience
+     - Identify all the phases that the user will go through when using your app.
+     - Next, identify the actions that must be takes in each phase.
+     - Next, for each phase try to identify the emotional state of the user, like their general thoughts, pain points, questions, or motivations.
+     - From this you can draw a curve to represent the emotional state of the user. The peaks represent the emotional peaks of the customer.
+
+3. Insights - For each experience, list the possible opportunities to improve the overall experience and the metrics associated with improving the experience.
+
+    Providing real-time information on the location of the vehicle after the ride is ordered can help reduce the pain point of waiting (opportunity). That feature will need to be designed and developed by the product team (internal ownership) and can be monitored according to post-ride ratings (metric).
+
+## Aesthetic-Usability Effect
+
+Users often perceive aesthetically pleasing design as design that's more usable.
+
+- An aesthetically pleasing design created a positive response in people's brains and leads them to believe the design actually works better.
+- People are more tolerant to minor usability issues when the design of a product or service is aesthetically pleasing.
+- Visually pleasing design can mask usability problems and prevent issues from being discovered during usability testing.
+
+## von Restorff Effect
+
+When multiple similar objects are present, the one that differs from the rest is most likely to be remembered.
+
+- Make important information or key actions visually distinctive.
+- Use restraint when placing emphasis on visual elements to avoid them competing with one another and to ensure salient items don't get mistakenly identified as ads.
+- Don't exclude those with a color vision deficiency or low vision by relying exclusively on color to communicate contrast.
+- Carefully consider users with motion sensitivity when using motion to communicate contrast.
+
+## Tesler's Law
+
+Tesler's law, also known as the law of conservation of complexity, states that for any system there is a certain amount of complexity that cannot be reduced.
+
+- All processes have a core of complexity that cannot be designed away and therefore must be assumed by either the system or the user.
+- Ensure as much as possible of the burden is lifted from users by dealing with inherent complexity during design and development.
+- Take care not to simplify interfaces to the point of abstraction.
+
+When sending an email, you must know the 'from' and 'to' email address. This is the complexity that cannot be get rid of.
+
+But, you can help the users through design
+
+- Populate the 'from' automatically as the email client probably knows this info.
+- When typing 'to' give suggestions based on past emails.
+
+## Doherty Threshold
+
+Productivity increases when a computer and its users interact at a pace (<400 ms) that ensures that neither has to wait on the other.
+
+- Provide system feedback within 400 ms in order to keep users' attention and increase productivity.
+- Use perceived performance to improve response time and reduce the preception of waiting.
+- Animation is one way to visually engage people while loading or processing is happening in the background.
+- Progress bars help make wait times tolerable, regardless of their accuracy.
+- Purposefully adding a delay to a process can actually increase its perceived value and instill a sense of trust, even when the process itself takes much less time.
+
+For slow loading content, provide a skeleton screen when the content is loading.
+
+For images, blur technique can be used. It works by first loading an extremely small version of an image and scaling (gaussian blur) it up to the target size. Once the larger version of the image is loaded in the background, it is placed behind thje low-resolution version and revealed by fading out the top image.
+
+Why fast response times might also be a problem
+
+- A change that happens too fast may be completely missed, this is especially true when the change is not the result of an action taken by the user but something that happens automatically.
+- When response it too fast, it can be difficult for the user to comprehend what happened.
+- It can also result in mistrust if it dosen't align with the user's expectations about the task being performed.
+
+Facebook security scan does this, by showing additional information to educaate people about what is being scanned, and also adding a delay to instill trust that the scan is thorough.
