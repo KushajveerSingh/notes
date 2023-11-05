@@ -205,4 +205,22 @@ Tips
 
 - Use as much space as needed. But still keep is short enough to get the point across, and no longer. Just mention a few of the most important ones.
 
-POage 121
+Religious debates about things like should you include a pull-down on a page, can be handled as
+
+- Does this pull-down with these items and this wording in this context on this page create a good experience for most people who are likely to use this site?
+- The only way to answer this question is through testing. Build a crude version, then watch some people carefully try to figure out what it is and how to use it.
+
+Focus groups vs usability testing
+
+- In a focus group, a small group of people (5 to 10) sit around a table and talk about things, like their opinions about products, their past experiences with them, or their reactions to new concepts. Focus groups are good for quickly getting a sampling of users' feelings and opinions about things.
+- Usability tests are about watching one person at a time try to use something (a website, prototype, sketches of a new design) to do typical tasks so you can detect and fix the things that confuse or frustrate them.
+
+How to do usability testing yourself
+
+- One morning a month do testing, debriefing, and deciding what to fix. By early afternoon, you are done with usability testing for the rest of the month.
+- For normal tests, you do them throughout the development process.
+- Typically involves three people, and you can recruit them loosely.
+- The location of the test is on-site with observers in a conference room using screen sharing software to watch.
+- A 1-2 page email summarizes decisions made during the team's debriefing.
+- The entire development team and any interested stakeholders meet over lunch the same day to compare notes and decide what to fix.
+- The primary purpose is to identify the most serious problems and commit to fixing them before the next round of testing.
