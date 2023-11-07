@@ -1,3 +1,5 @@
+**Laws of UX: Using Psychology to Design Better Products & Services** by *Jon Yablonski* (1st edition)
+
 ##  Jakob's Law
 
 Users spend most of their time on other sites, and they prefer your site to work the same way as all the other sites they already know.
@@ -24,7 +26,7 @@ The time it takes to make a decision increases with the number and complexity of
 - Minimize choices when response times are critical to increase decision time.
 - Break complex tasks into smaller steps in order to decrease cognitive load.
 - Avoid overwhelming users by highlighting recommended options.
-- Use progressive onboarding to minimize cognitive load for new uers.
+- Use progressive onboarding to minimize cognitive load for new users.
 - Be careful not to simplify to the point of abstraction.
 
 ## Miller's Law
@@ -39,7 +41,7 @@ The average person can keep only 7 (+/- 2) items in their working memory.
 
 Be conservative in what you do (our design should be reliable and accessible), be liberal in what you accept from others (accept input from users via any input mechanism and different formats).
 
-- Be emphathetic to, flexible about, and tolerant to any of the various actions the user could take or any input they might provide.
+- Be empathetic to, flexible about, and tolerant to any of the various actions the user could take or any input they might provide.
 - Anticipate virtually anything in terms of input, access, and capability while providing a reliable and accessible interface.
 - The more we can anticipate and plan for in design, the more resilient the design will be.
 - Accept variable input from users, translating that input to meet your requirements, defining boundaries for input, and providing clear feedback for the user.
@@ -57,8 +59,8 @@ Example of this is Mailchimp. Before sending an email, a popup is shown with "Yo
 The peak emotions also happen for negative experiences, like waiting in line. Example of this is Uber, which handles this by focusing on three concepts related to wait time
 
 - Idleness aversion - customers are presented with animation that helps to keep them not only informed but also entertained.
-- Operational transparency - app provides estiamted time of travel and information on how arrival times are calculated.
-- Goal gradient effect - each step of the process is clearly explained so that customers feel they are continously making progress towards their goal of getting a ride.
+- Operational transparency - app provides estimated time of travel and information on how arrival times are calculated.
+- Goal gradient effect - each step of the process is clearly explained so that customers feel they are continuously making progress towards their goal of getting a ride.
 
 Journey maps can be used to identify positive/negative peaks
 
@@ -113,14 +115,14 @@ But, you can help the users through design
 Productivity increases when a computer and its users interact at a pace (<400 ms) that ensures that neither has to wait on the other.
 
 - Provide system feedback within 400 ms in order to keep users' attention and increase productivity.
-- Use perceived performance to improve response time and reduce the preception of waiting.
+- Use perceived performance to improve response time and reduce the perception of waiting.
 - Animation is one way to visually engage people while loading or processing is happening in the background.
 - Progress bars help make wait times tolerable, regardless of their accuracy.
 - Purposefully adding a delay to a process can actually increase its perceived value and instill a sense of trust, even when the process itself takes much less time.
 
 For slow loading content, provide a skeleton screen when the content is loading.
 
-For images, blur technique can be used. It works by first loading an extremely small version of an image and scaling (gaussian blur) it up to the target size. Once the larger version of the image is loaded in the background, it is placed behind thje low-resolution version and revealed by fading out the top image.
+For images, blur technique can be used. It works by first loading an extremely small version of an image and scaling (gaussian blur) it up to the target size. Once the larger version of the image is loaded in the background, it is placed behind the low-resolution version and revealed by fading out the top image.
 
 Why fast response times might also be a problem
 
@@ -128,4 +130,4 @@ Why fast response times might also be a problem
 - When response it too fast, it can be difficult for the user to comprehend what happened.
 - It can also result in mistrust if it dosen't align with the user's expectations about the task being performed.
 
-Facebook security scan does this, by showing additional information to educaate people about what is being scanned, and also adding a delay to instill trust that the scan is thorough.
+Facebook security scan does this, by showing additional information to educate people about what is being scanned, and also adding a delay to instill trust that the scan is thorough.

@@ -1,13 +1,13 @@
-**Don't Make me Think Revisited A Common Sense Approach to Web and Mobile Usability** by _Steve Krug_ (2014, 3rd edition).
+**Don't Make me Think Revisited A Common Sense Approach to Web and Mobile Usability** by *Steve Krug* (2014, 3rd edition).
 
-_Usability_ - A person of average (or even below average) ability and experience can figure out how to use the thing to accomplish something without it begin more trouble that it's worth.
+*Usability* - A person of average (or even below average) ability and experience can figure out how to use the thing to accomplish something without it begin more trouble that it's worth.
 
 ## Ch-1 Don't make me think
 
 You want the users to have these thoughts
 
 -   Ok. This looks like the product categories...
--   Laptops, Memeory... There it is: Monitors Click
+-   Laptops, Memory... There it is: Monitors Click
 -   ...and these are today's special deals.
 
 Things that make the users think and stop
@@ -60,16 +60,16 @@ Tips to make sure users see and understand as much of what they need to know - a
     -   Products the company sells
     -   Things they're eager to sell me
     -   Navigation to get to the rest of the site
--   Make if abvious what's clickable. Use the same color for all text links, or make sure their shape and location identify as clickable.
+-   Make if obvious what's clickable. Use the same color for all text links, or make sure their shape and location identify as clickable.
 -   Keep the visual noise to a minimum.
     -   Shouting. When everything on the page is clamoring for your attention. Lots of invitations to buy, lots of exclamation points, different typefaces, and bright colors, automated slideshows, animation, pop-ups. Solution is to organize pages, into visual hierarchies.
     -   Disorganization. Like things are not properly aligned.
     -   Clutter. For example, home pages that have too mich stuff that result in low signal-to-noise ratio i.e. lots of noise and not much information. When editing pages assume everything is visual noise and get rid of anything that is not making a real contribution.
 -   Format text to support scanning.
-    -   Use plenty of headings. Help to decide which parts to read, scan, or skip. Make higer level headings larger, or leave more space above them.
+    -   Use plenty of headings. Help to decide which parts to read, scan, or skip. Make higher level headings larger, or leave more space above them.
     -   Make the headings closer to the section they introduce than to the section they follow (i.e. the margin between the section below should be smaller than the section above).
     -   Keep paragraphs short. Generally, each paragraph should have a top sentence, detail sentence, and a conclusion. But on the web, you can even have single-sentence paragraphs.
-    -   Use bulleted list. Almost anything that can be a bulleted list probably should be (items separated by commas or semicolons in a paragraph are good condadidates for this). And the list items should have a small amount of additional space between them.
+    -   Use bulleted list. Almost anything that can be a bulleted list probably should be (items separated by commas or semicolons in a paragraph are good candidates for this). And the list items should have a small amount of additional space between them.
     -   Highlight key terms. Format the most important ones in bold where they first appear in the text to make them easier to find, and don't highlight too much.
 
 ## Ch-4 Animal, Vegetable, or Mineral?
@@ -77,8 +77,8 @@ Tips to make sure users see and understand as much of what they need to know - a
 How many clicks to do something on the site?
 
 -   People use hard limits like two or three, meaning it should not take more than these number of click to get to any page in the site.
--   Another metric, which the author suggests is to check how hard each click it (while still keeping the max click limit in mind) i.e. the amount of though required and the amount of uncertainity about whether I'm making the right choice.
--   Three mindless unambigous clicks equal one click that requires thought.
+-   Another metric, which the author suggests is to check how hard each click it (while still keeping the max click limit in mind) i.e. the amount of though required and the amount of uncertainty about whether I'm making the right choice.
+-   Three mindless unambiguous clicks equal one click that requires thought.
 
 There are occasions when you can't avoid a difficult choice. In that scenario, you need to go out of your way to give the user as much guidance as I need - but no more.
 
@@ -91,8 +91,8 @@ There are occasions when you can't avoid a difficult choice. In that scenario, y
 Get rid of half the words on each page, then get rid of half of what's left (it means try to be ruthless about the process)
 
 -   Happy talk must die. The introductory text that's supposed to welcome us to the site and tell us how great it is or tell us what we're about to see in the section we've entered.
--   Instructions must die. No one reads instructions until they have failed multiple times, and even then if the instructions are wordly, the odds of users finding the information they need are pretty low. Make everything self-explanatory, or as close to it as possible.
-    An example of consise instruction is
+-   Instructions must die. No one reads instructions until they have failed multiple times, and even then if the instructions are wordy, the odds of users finding the information they need are pretty low. Make everything self-explanatory, or as close to it as possible.
+    An example of concise instruction is
 
     > Please help us improve the site by taking 2-3 minutes to complete the survey.
     >
@@ -102,8 +102,8 @@ Get rid of half the words on each page, then get rid of half of what's left (it 
 
 Two types of users
 
--   Search dominant - will look for search bar as sson as they enter a site.
--   Link dominant - will browse first, searching only when they've run out of likely links to click or when they have gotten sufficiently frustated by the site.
+-   Search dominant - will look for search bar as soon as they enter a site.
+-   Link dominant - will browse first, searching only when they've run out of likely links to click or when they have gotten sufficiently frustrated by the site.
 -   Also, the current frame of mind, how much of a hurry they're in, and whether the site appears to have decent browsable navigation affects this decision also.
 
 Problems with web browsing
@@ -134,17 +134,17 @@ Persistent navigation (or global navigation) are navigation elements that appear
 
     -   When you hover over a section, subsections can also be shown for that section.
 
--   Utilities - links to important elements of the site that are not part of the content hierarchy (like Sign In/Register, Help, a Site Map, Shoppint Cart, info about publisher like About us, Contact Us).
+-   Utilities - links to important elements of the site that are not part of the content hierarchy (like Sign In/Register, Help, a Site Map, Shopping Cart, info about publisher like About us, Contact Us).
 
     These should be slightly less prominent that the Sections.
 
--   Search. Every page must include this, as a mojarity of the people are looking for this. Keep is simple as shown in the diagram and use the word "Search". Do not get fancy with Find, Quick Find, Quick Search, or Keyword Search. You do not have to add the text "Type a keyword", as you can assume people using the web already know this stuff.
+-   Search. Every page must include this, as a majority of the people are looking for this. Keep is simple as shown in the diagram and use the word "Search". Do not get fancy with Find, Quick Find, Quick Search, or Keyword Search. You do not have to add the text "Type a keyword", as you can assume people using the web already know this stuff.
 
     Sometimes you might want to limit the search to the current page, section, or something. The author finds this practice rarely useful, as then you have to provide the users with options to choose the scope of the search or explain to them what the search is going to do, which takes a mental load on the users.
 
     A better approach is to use a global search and after the user is on the search page and is overwhelmed, then show them the options to limit the scope of the search.
 
-An exception to the above rule is pages with "forms". When a person is filling in a form, we want to avoid unncessary distractions (like if you are paying on an e-comeerce site, you don't really want me to do anything but finish filling in the forms, and the same forregistering, subscribing, giving feedback, or checking off personalization preferences).
+An exception to the above rule is pages with "forms". When a person is filling in a form, we want to avoid unnecessary distractions (like if you are paying on an e-commerce site, you don't really want me to do anything but finish filling in the forms, and the same for registering, subscribing, giving feedback, or checking off personalization preferences).
 
 On these pages use a minimal version of persistent navigation with just the Site ID, a link to Home, and any utilities that might help me fill out the form.
 
@@ -178,7 +178,7 @@ How to know you have accomplished all the above goals? Perform this test
 3. As quickly as possible, try to find and circle each of these items
     - Site ID
     - Page name
-    - Sections (Primary naviagtion)
+    - Sections (Primary navigation)
     - Local navigation
     - "You are here" indicator(s)
     - Search

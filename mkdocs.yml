@@ -37,7 +37,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.indexes
-    - navigation.expand
+    # - navigation.expand
     - toc.follow
     - navigation.top
     - search.suggest
@@ -133,10 +133,9 @@ extra_javascript:
 
 nav:
   - Overview: index.md
-  - Systen Design:
-    - General Tips: system_design/general_tips.md
+  - Amy Miller: amy_miller.md
   - Documentation:
-    - MkDocs: documentation/mkdocs.md
+      - MkDocs: documentation/mkdocs.md
   - UI/UX:
     - Books:
       - Refactoring UI: ui_ux/books/refactoring_ui.md
@@ -146,17 +145,23 @@ nav:
   - HTML:
     - HTML: html/html.md
     - Images: html/images.md
-  - CSS:
-    - Tailwind CSS: css/tailwind_css.md
   - JavaScript:
     - Tooling:
       - pnpm: javascript/tooling/pnpm.md
       - Prettier: javascript/tooling/prettier.md
+  - Temp:
+    - Systen Design:
+      - General Tips: temp/system_design/general_tips.md
+    - CSS:
+      - Tailwind CSS: temp/css/tailwind_css.md
     - React:
-      - Next.js: react/nextjs.md
-  - Go:
-    - Books:
-      - Let's Go: go/books/lets_go.md
-  - Database:
-    - PostgreSQL:
-      - PostgreSQL: database/postgresql/postgresql.md
+      - Next.js: temp/react/nextjs.md
+    - Go:
+      - Books:
+        - Let's Go: temp/go/books/lets_go.md
+    - Database:
+      - PostgreSQL:
+        - PostgreSQL: temp/database/postgresql/postgresql.md
+        - Temp: temp/database/postgresql/temp.md
+    - Amy Miller: temp/amy_miller.md
+    - Figma: temp/figma.md

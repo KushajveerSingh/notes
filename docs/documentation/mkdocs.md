@@ -7,7 +7,7 @@
 - Put CNAME file in `my-project/docs/CNAME`.
 - Build the site using `mkdocs build`, which creates `my-project/site` directory.
 
-## Customize the theme
+## Customize theme
 
 ### Using .css/.js files
 This is for simple updates, that can be put in `.css`, `.js` files. Create the `.css`/`.js` files in the `docs` directory and include them in `mkdocs.yml` as
@@ -51,7 +51,7 @@ remote_branch: gh-pages # When using `gh-deploy` action to deploy to GitHub page
 remote_name: origin # remote name to push to when using `gh-deploy`
 
 # Specify the navbar to the side (with prev/next functionality)
-# Default order is alpanumerical, with index.md files appearing first
+# Default order is alphanumerical, with index.md files appearing first
 nav:
   - Introduction: 'index.md'
   - 'about.md'
@@ -122,6 +122,7 @@ site_name: ...
 ```
 
 ## Command line
+
 ### mkdocs
 - `-V` - show version
 - `-q` - silence warnings
@@ -145,3 +146,5 @@ Deploy documentation to github pages
 - `--no-history` - replace the whole git history with one new commit
 
 ## Build custom plugins
+
+Reference this [link](https://www.mkdocs.org/dev-guide/plugins/) to learn to build plugins.
