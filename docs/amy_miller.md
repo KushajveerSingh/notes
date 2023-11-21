@@ -61,7 +61,11 @@ How to apply for jobs
         > You are from my same college, we both graduated from the university of georgia, and we had the same degree and I was just curious you got an internship at my dream company, what advise do you have for someone like who is coming like two years behind you and was looking for the same career path.
 
         - Write something like simple, to which someone can quickly write an email response, to give you some direction.
+
+
 Resume length does not matter much. The only thing that matters is that the information should be relevant. If the information is relevant you can go to 3 pages.
+
+
 
 
 Interview prep with recruiters
@@ -89,6 +93,7 @@ Salary negotiation
 - The things that are not negotiable are time-off, benefits.
 - You should not tell your current compensation.
 - Do not agree to arbitrary deadlines, where recruiters push to get a verbal agreement right now, or you need to sign in a short period of time. Because if you have earned an offer letter from a company, you deserve to have that letter in your hand. Do not fall for the trap that the offer cannot be printed, till you say yes.
+
 
 On LinkedIn have a solid About section about what you do like "I am this job title with X years of experience, I'm skilled in these tools, I've accomplished those things".
 
