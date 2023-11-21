@@ -1,0 +1,2443 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Collection of personal notes for various technologies that I use on a daily basis.">
+      
+      
+        <meta name="author" content="Kushajveer Singh">
+      
+      
+        <link rel="canonical" href="https://kushajveersingh.com/notes/temp/react/nextjs/">
+      
+      
+        <link rel="prev" href="../../css/tailwind_css/">
+      
+      
+        <link rel="next" href="../../go/books/lets_go/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.4.10">
+    
+    
+      
+        <title>Next.js - Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.fad675c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.356b1318.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-FXFJECD70Y"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-FXFJECD70Y",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-FXFJECD70Y",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+            </style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="yellow">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rendering" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Notes" class="md-header__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.jpeg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Next.js
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="brown" data-md-color-accent="yellow"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/KushajveerSingh/notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KushajveerSingh/notes
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Notes" class="md-nav__button md-logo" aria-label="Notes" data-md-component="logo">
+      
+  <img src="../../../assets/images/logo.jpeg" alt="logo">
+
+    </a>
+    Notes
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/KushajveerSingh/notes" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    KushajveerSingh/notes
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Overview
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../amy_miller/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amy Miller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Documentation
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/mkdocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    UI/UX
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            UI/UX
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui_ux/books/refactoring_ui/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Refactoring UI
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui_ux/books/laws_of_ux/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Laws of UX
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui_ux/books/dont_make_me_think/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Don't Make Me Think
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../ui_ux/figma.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Figma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    HTML
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            HTML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../html/html/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    HTML
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../html/images/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Images
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    JavaScript
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            JavaScript
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tooling
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Tooling
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/tooling/pnpm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pnpm
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../javascript/tooling/prettier/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Prettier
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Temp
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Temp
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Systen Design
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Systen Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system_design/general_tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    General Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CSS
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            CSS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../css/tailwind_css/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tailwind CSS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    React
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            React
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Next.js
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Next.js
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-side-rendering-ssr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-Side Rendering (SSR)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linking-and-navigating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linking and Navigating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic routes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel routes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rootlayout" class="md-nav__link">
+    <span class="md-ellipsis">
+      RootLayout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Error
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-metadata-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use metadata object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-metadata-dynamically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate metadata dynamically
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      API routes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Go
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            Go
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4_1" id="__nav_7_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Books
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            Books
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../go/books/lets_go/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Let's Go
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Database
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_5_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_5_1" id="__nav_7_5_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_5_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5_1">
+            <span class="md-nav__icon md-icon"></span>
+            PostgreSQL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/postgresql/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../database/postgresql/temp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Temp
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../amy_miller.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Amy Miller
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../figma/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Figma
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rendering" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rendering
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rendering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#server-side-rendering-ssr" class="md-nav__link">
+    <span class="md-ellipsis">
+      Server-Side Rendering (SSR)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Routing
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Routing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#linking-and-navigating" class="md-nav__link">
+    <span class="md-ellipsis">
+      Linking and Navigating
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#route-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      Route groups
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dynamic-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dynamic routes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parallel routes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#special-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Special Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Special Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rootlayout" class="md-nav__link">
+    <span class="md-ellipsis">
+      RootLayout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#loading" class="md-nav__link">
+    <span class="md-ellipsis">
+      Loading
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Error
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      Metadata
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metadata">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-metadata-object" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use metadata object
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-metadata-dynamically" class="md-nav__link">
+    <span class="md-ellipsis">
+      Generate metadata dynamically
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-routes" class="md-nav__link">
+    <span class="md-ellipsis">
+      API routes
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+    <a href="https://github.com/KushajveerSingh/notes/edit/main/docs/temp/react/nextjs.md" title="Edit this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+    </a>
+  
+  
+
+
+  <h1>Next.js</h1>
+
+<p>Install <code>npx create-next-app@latest</code>.</p>
+<h2 id="rendering">Rendering</h2>
+<h3 id="server-side-rendering-ssr">Server-Side Rendering (SSR)</h3>
+<ol>
+<li>All data for a given page is fetched on the server.</li>
+<li>The server then renders the HTML for the page.</li>
+<li>The HTML, CSS, JS for the page are sent to the client.</li>
+<li>A non-interactive user interface is shown using the generated HTML, CSS.</li>
+<li>Finally, React hydrates the user interface to make it interactive.</li>
+</ol>
+<p>If the data takes long time to load, then the website would be not interactive. To resolve this issue <strong>Streaming</strong> is used</p>
+<ul>
+<li>Since the UI is broken into React components (chunks), the chunks that do not depend on data or with high priority can be sent first. This includes sending the <code>layout</code> first.</li>
+<li>Low priority chunks like product reviews, related products can be sent later.</li>
+<li>In short, Streaming prevents long data requests from blocking the page from rendering.</li>
+<li>To implement this use <code>&lt;Suspense&gt;</code></li>
+<li>
+<p>Also, internally streaming would only start after all the data for <code>generateMetadata</code> is fetched, so as to include the <code>&lt;head&gt;</code> tags.</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-0-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-0-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-0-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-0-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-0-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-0-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-0-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-0-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-0-10">10</a></span>
+<span class="normal"><a href="#__codelineno-0-11">11</a></span>
+<span class="normal"><a href="#__codelineno-0-12">12</a></span>
+<span class="normal"><a href="#__codelineno-0-13">13</a></span>
+<span class="normal"><a href="#__codelineno-0-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a>import { Suspense } from &#39;react&#39;;
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a>export default function Posts() {
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a>  return (
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a>    &lt;section&gt;
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6"></a>      &lt;Suspense fallback={&lt;p&gt;Loading feed...&lt;/p&gt;}&gt;
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7"></a>        &lt;PostFeed /&gt;
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8"></a>      &lt;/Suspense&gt;
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9"></a>      &lt;Suspense fallback={&lt;p&gt;Loading weather...&lt;/p&gt;}&gt;
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10"></a>        &lt;Weather /&gt;
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11"></a>      &lt;/Suspense&gt;
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12"></a>    &lt;/section&gt;
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13"></a>  )
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14"></a>}
+</span></code></pre></div></td></tr></table></div>
+</li>
+</ul>
+<h2 id="routing">Routing</h2>
+<ul>
+<li><code>app/page.tsx</code> - maps to <code>/</code>.</li>
+<li><code>app/dashboard/page.tsx</code> - maps to <code>/dashboard</code>. (static route)</li>
+<li><code>app/blog/[slug]/page.tsx</code> - maps to <code>/blog/a</code>, <code>/blog/b</code> (dynamic routes)</li>
+<li><code>app/blog/[...slug]/page.tsx</code> - maps to <code>/blog/a</code>, <code>/blog/a/b</code> (catch-all segments)</li>
+<li><code>app/blog/[[...slug]]/page.tsx</code> - maps to <code>/blog</code>, <code>/blog/a</code>, <code>/blog/a/b</code> (optional catch-all segments)</li>
+<li><code>app/@team/members</code> - used to define parallel routes.</li>
+<li><code>page.js</code> defines the leaf node in the route hiearchy and makes that URL publickly accessible.</li>
+</ul>
+<h3 id="linking-and-navigating">Linking and Navigating</h3>
+<p>Use <code>&lt;Link&gt;</code> instead of <code>&lt;a&gt;</code> to get prefetching and client-side navigation between routes.
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a>import Link from &#39;next/link&#39;;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a>export default function Page() {
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a>  // Static links
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a>  return &lt;Link href=&quot;/dashboard&quot;&gt;Dashboard&lt;/Link&gt;;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a>  // Dynamic Links
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8"></a>  return (
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9"></a>    &lt;ul&gt;
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10"></a>      {posts.map((post) =&gt; (
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11"></a>        &lt;li key={post.id}&gt;
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12"></a>          &lt;Link href={`/blog/${post.slug}`}&gt;{post.title}&lt;/Link&gt;
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13"></a>        &lt;/li&gt;
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14"></a>      ))}
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15"></a>    &lt;/ul&gt;
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16"></a>  );
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<p>To check if the current path is active use <code>usePathname</code>.
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a>&#39;use client&#39;;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a>import { usePathname } from &#39;next/navigation&#39;;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a>import Link from &#39;next/link&#39;;
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6"></a>export function Links() {
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7"></a>  const pathname = usePathname();
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8"></a>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9"></a>  return (
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10"></a>    &lt;nav&gt;
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11"></a>      &lt;ul&gt;
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12"></a>        &lt;li&gt;
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13"></a>          &lt;Link className={`link ${pathname === &#39;/&#39; ? &#39;active&#39; : &#39;&#39;}`} href=&quot;/&quot;&gt;Home&lt;/Link&gt;
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14"></a>        &lt;/li&gt;
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15"></a>      &lt;/ul&gt;
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16"></a>    &lt;/nav&gt;
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17"></a>  );
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<p>When a <code>&lt;Link&gt;</code> tags becomes visible in the viewport, it is prefetches (if it is static route). For dynamic routes, only the shared layout and <code>loading.tsx</code> is prefetched and cached for 30s. To programmatically control the behavior of Link and caching use <code>useRouter()</code> hook.</p>
+<p>Also, the scroll position is preserved between forwards and backwards navigation.</p>
+<h3 id="route-groups">Route groups</h3>
+<p>This allows you to organize files into folders, without affecting the route URL. Let's say you have a file <code>app/marketing/about/page.js</code> which would be renderd at <code>/marketing/about</code>.</p>
+<p>But if you want to exclude <code>marketing</code> from the route name, you can wrap it in brackets as <code>app/(marketing)/about/page.js</code> and then it would be rendered at <code>/about</code>.</p>
+<p>This allows to organize route segments and project files into logical groups without affecting the URL path structure.</p>
+<h3 id="dynamic-routes">Dynamic routes</h3>
+<p>Wrap folder name in square brackets like <code>[id]</code>, and these are passed as <code>params</code> to layout, page, route, generateMetadata functions.</p>
+<p>To generate routes dynamically every time a request is made use this
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app/blog/[slug]/page.tsx</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span>
+<span class="normal"><a href="#__codelineno-3-3">3</a></span>
+<span class="normal"><a href="#__codelineno-3-4">4</a></span>
+<span class="normal"><a href="#__codelineno-3-5">5</a></span>
+<span class="normal"><a href="#__codelineno-3-6">6</a></span>
+<span class="normal"><a href="#__codelineno-3-7">7</a></span>
+<span class="normal"><a href="#__codelineno-3-8">8</a></span>
+<span class="normal"><a href="#__codelineno-3-9">9</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a>type TypePage = {
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a>  params: {
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a>    slug: string;
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a>  };
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a>}
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a>export default function Page({ params }: TypePage) {
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a>  const slug = params.slug;
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a>} 
+</span></code></pre></div></td></tr></table></div></p>
+<p>To generate routes during build time use this
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app/blog/[slug]/page.tsx</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span>
+<span class="normal"><a href="#__codelineno-4-5">5</a></span>
+<span class="normal"><a href="#__codelineno-4-6">6</a></span>
+<span class="normal"><a href="#__codelineno-4-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a>export async function generateStaticParams() {
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a>  const posts = await fetch(&#39;...&#39;).then((res) =&gt; res.json());
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a>  return posts.map((post) =&gt; ({
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a>    slug: post.slug,
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a>  }));
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="parallel-routes">Parallel routes</h3>
+<p>Simulaneously or conditionally render one or more pages in the same layout, which is useful on highly dynamic sections of an app like dashboards and feeds (you can simultaneously render the team and analytics page), and this also includes conditional slots based on authentication state.</p>
+<p>Define a folder starting with <code>@</code>.
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span>
+<span class="normal"><a href="#__codelineno-5-8">8</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a>app
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a>- @analytics
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a>    - page.js
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>    - error.js
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a>- @team
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a>    - page.js
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a>- layout.js
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8"></a>- page.js
+</span></code></pre></div></td></tr></table></div></p>
+<p>In the above case <code>app/@analytics/page.js</code> gets routed to <code>/</code> as parallel routes do not affect URL structure.</p>
+<p>Now you can load both the slots in parallel in <code>layout.js</code>.</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app/layout.tsx</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a>type TypeProps = {
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a>  children: React.ReactNode;
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a>  analytics: React.ReactNode;
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a>  team: React.ReactNode;
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a>};
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a>export default function Layout(props: TypeProps) {
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a>  return (
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a>    &lt;&gt;
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a>      {props.children}
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a>      {props.team}
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a>      {props.analytics}
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a>    &lt;/&gt;
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a>  );
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a>}
+</span></code></pre></div></td></tr></table></div>
+<p>For conditional routing it is the same logic
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app/layout.tsx</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a>...
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>export default function Layout({ dashboard, login }) {
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a>  ...
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a>  return isLoggedIn ? dashboard : login;
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<p>To know which route segment is active you can use this code
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app/layout.tsx</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span>
+<span class="normal"><a href="#__codelineno-8-4">4</a></span>
+<span class="normal"><a href="#__codelineno-8-5">5</a></span>
+<span class="normal"><a href="#__codelineno-8-6">6</a></span>
+<span class="normal"><a href="#__codelineno-8-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a>import { useSelectedLayoutSegment } from &#39;next/navigation&#39;;
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>export default async function Layout(props) {
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a>  // If the user naviagtes to &quot;@auth/login&quot;, or &quot;/login&quot; in the URL bar
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>  // `loginSegments` will be equal to the string &#39;login&#39;
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a>  const loginSegments = useSelectedLayoutSegment(&#39;auth&#39;);
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<p>You can also define a <code>default.js</code> file to render as a fallback in case Next.js cannot recover a slot's active state based on the current url.</p>
+<h2 id="special-files">Special Files</h2>
+<ul>
+<li><code>layout.tsx</code> - Shared UI for a segment (directory) and its children. On navigation, layouts preserve state, remain interactive, and do no re-render.</li>
+<li><code>page.tsx</code>- Unique UI of a route and make routes publicly accessible</li>
+<li><code>loading.tsx</code> - Loading UI for a segment and its children</li>
+<li><code>not-found.tsx</code> - Not found UI for a segment and its children</li>
+<li><code>error.tsx</code> - Error UI for a segment and its children</li>
+<li><code>global-error.tsx</code> - Global Error UI</li>
+<li><code>route.tsx</code> - Server side API endpoint</li>
+<li><code>template.tsx</code> - Specialized re-rendered Layout UI</li>
+<li><code>default.tsx</code> - Fallback UI for parallel routes</li>
+</ul>
+<p>Internally these are rendered as
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a>&lt;Layout&gt;
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a>  &lt;Template&gt;
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>    &lt;ErrorBoundary fallback={&lt;Error /&gt;}&gt;
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a>      &lt;Suspense fallback={&lt;Loading /&gt;}&gt;
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>        &lt;ErrorBoundary fallback={&lt;NotFound /&gt;}&gt;
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a>          &lt;Page /&gt;
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>        &lt;/ErrorBoundary&gt;
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>      &lt;/Suspense&gt;
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>    &lt;/ErrorBoundary&gt;
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a>  &lt;/Template&gt;
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a>&lt;/Layout&gt;
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="rootlayout">RootLayout</h3>
+<p><code>app/layout.tsx</code> should contain <code>RootLayout</code> and it defines <code>&lt;html&gt;</code>, <code>&lt;body&gt;</code> tags, shared across all pages in an application.</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a>type TypeRootLayout = {
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a>  children: React.ReactNode;
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>};
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a>export default function RootLayout({ children }: TypeRootLayout) {
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a>  return (
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>    &lt;html lang=&quot;en&quot;&gt;
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a>      &lt;body&gt;
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>        {children}
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a>      &lt;/body&gt;
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a>    &lt;/html&gt;
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>  )
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>}
+</span></code></pre></div></td></tr></table></div>
+<h3 id="layout">Layout</h3>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a>type TypeDashboardLayout = {
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a>  children: React.ReactNode;
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>};
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>export default function DashboardLayout({ children }: TypeDashboardLayout) {
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a>  return (
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>    &lt;section&gt;
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a>      &lt;nav&gt;&lt;/nav&gt;
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>      {children}
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a>    &lt;/section&gt;
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>  )
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>}
+</span></code></pre></div></td></tr></table></div>
+<h3 id="loading">Loading</h3>
+<p><code>loading.tsx</code> creates loading UI with React Suspense. This is shown while the content of a route segment loads. The new content is automatically swapped in once rendering is complete. Also, the loading can be interrupted if navigating to another page.</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">app/dashboard/loading.tsx</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1">1</a></span>
+<span class="normal"><a href="#__codelineno-12-2">2</a></span>
+<span class="normal"><a href="#__codelineno-12-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a>export default function Loading() {
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a>  return &quot;Loading...&quot;
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a>}
+</span></code></pre></div></td></tr></table></div>
+<p>Internally this gets translated to
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-13-1">1</a></span>
+<span class="normal"><a href="#__codelineno-13-2">2</a></span>
+<span class="normal"><a href="#__codelineno-13-3">3</a></span>
+<span class="normal"><a href="#__codelineno-13-4">4</a></span>
+<span class="normal"><a href="#__codelineno-13-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1"></a>&lt;Layout&gt;
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2"></a>  &lt;Suspense fallback={&lt;Loading /&gt;}&gt;
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3"></a>    &lt;Page /&gt;
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4"></a>  &lt;/Suspense&gt;
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5"></a>&lt;/Layout&gt;
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="error">Error</h3>
+<p>Use <code>error.js</code> to handle unexpected runtime errors. This has the benefit
+- Create a specific UI for the error.
+- Isolate errors to affected segments while keeping the rest of the application functional.
+- Add functionality to attempt to recover from an error without a full page reload.</p>
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-14-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-14-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-14-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-14-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-14-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-14-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-14-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-14-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-14-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-14-10">10</a></span>
+<span class="normal"><a href="#__codelineno-14-11">11</a></span>
+<span class="normal"><a href="#__codelineno-14-12">12</a></span>
+<span class="normal"><a href="#__codelineno-14-13">13</a></span>
+<span class="normal"><a href="#__codelineno-14-14">14</a></span>
+<span class="normal"><a href="#__codelineno-14-15">15</a></span>
+<span class="normal"><a href="#__codelineno-14-16">16</a></span>
+<span class="normal"><a href="#__codelineno-14-17">17</a></span>
+<span class="normal"><a href="#__codelineno-14-18">18</a></span>
+<span class="normal"><a href="#__codelineno-14-19">19</a></span>
+<span class="normal"><a href="#__codelineno-14-20">20</a></span>
+<span class="normal"><a href="#__codelineno-14-21">21</a></span>
+<span class="normal"><a href="#__codelineno-14-22">22</a></span>
+<span class="normal"><a href="#__codelineno-14-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1"></a>&#39;use client&#39;;
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2"></a>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3"></a>import { useEffect } from &#39;react&#39;;
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4"></a>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5"></a>type TypeError = {
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6"></a>  error: Error;
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7"></a>  reset: () =&gt; void;
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8"></a>};
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9"></a>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10"></a>export default function Error({ error, reset }: TypeError) {
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11"></a>  useEffect(() =&gt; {
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12"></a>    // log the error
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13"></a>    console.log(error);
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14"></a>  }, [error]);
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15"></a>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16"></a>  return (
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17"></a>    &lt;div&gt;
+</span><span id="__span-14-18"><a id="__codelineno-14-18" name="__codelineno-14-18"></a>      &lt;h2&gt;Something went wrong!&lt;/h2&gt;
+</span><span id="__span-14-19"><a id="__codelineno-14-19" name="__codelineno-14-19"></a>      {/* Rerender the component and see if that works. */}
+</span><span id="__span-14-20"><a id="__codelineno-14-20" name="__codelineno-14-20"></a>      &lt;button onClick={() =&gt; reset()}&gt;Try again&lt;/button&gt;
+</span><span id="__span-14-21"><a id="__codelineno-14-21" name="__codelineno-14-21"></a>    &lt;/div&gt;
+</span><span id="__span-14-22"><a id="__codelineno-14-22" name="__codelineno-14-22"></a>  );
+</span><span id="__span-14-23"><a id="__codelineno-14-23" name="__codelineno-14-23"></a>}
+</span></code></pre></div></td></tr></table></div>
+<p>Internally, it uses React error boundary as
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-15-1">1</a></span>
+<span class="normal"><a href="#__codelineno-15-2">2</a></span>
+<span class="normal"><a href="#__codelineno-15-3">3</a></span>
+<span class="normal"><a href="#__codelineno-15-4">4</a></span>
+<span class="normal"><a href="#__codelineno-15-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1"></a>&lt;Layout&gt;
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2"></a>  &lt;ErrorBoundary fallback={&lt;Error /&gt;}&gt;
+</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3"></a>    &lt;Page /&gt;
+</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4"></a>  &lt;/ErrorBoundary&gt;
+</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5"></a>&lt;/Layout&gt;
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="global-error">Global Error</h3>
+<p><code>error.js</code> does not catch errors thrown in <code>layout.js</code> or <code>template.js</code> in the same folder. This keeps the layout interactive when an error with a component occurs.</p>
+<p>To handle erros for <code>layout.js</code> or <code>template.js</code>, place an <code>error.js</code> file in parent folder.</p>
+<p>TO handle errors for the root <code>layout</code> or <code>template</code> file create <code>app/global-error.js</code>. You would rarely reach this error boundary, but it is a good practice to still define this file, and include globally shared UI and branding.</p>
+<h2 id="metadata">Metadata</h2>
+<p>Do not use <code>&lt;head&gt;</code> tags, because the next solutions handle de-duplication and streaming.</p>
+<h3 id="use-metadata-object">Use metadata object</h3>
+<p>In <code>layout.tsx</code> or <code>page.tsx</code>.
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-16-1">1</a></span>
+<span class="normal"><a href="#__codelineno-16-2">2</a></span>
+<span class="normal"><a href="#__codelineno-16-3">3</a></span>
+<span class="normal"><a href="#__codelineno-16-4">4</a></span>
+<span class="normal"><a href="#__codelineno-16-5">5</a></span>
+<span class="normal"><a href="#__codelineno-16-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1"></a>import type { Metadata } from &#39;next&#39;;
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2"></a>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3"></a>export const metadata: Metadata = {
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4"></a>  title: &#39;Title&#39;,
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5"></a>  description: &#39;&#39;,
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<h3 id="generate-metadata-dynamically">Generate metadata dynamically</h3>
+<p>In <code>layout.tsx</code> or <code>page.tsx</code>.
+<div class="language-text highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-17-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-17-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-17-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-17-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-17-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-17-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-17-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-17-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-17-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-17-10">10</a></span>
+<span class="normal"><a href="#__codelineno-17-11">11</a></span>
+<span class="normal"><a href="#__codelineno-17-12">12</a></span>
+<span class="normal"><a href="#__codelineno-17-13">13</a></span>
+<span class="normal"><a href="#__codelineno-17-14">14</a></span>
+<span class="normal"><a href="#__codelineno-17-15">15</a></span>
+<span class="normal"><a href="#__codelineno-17-16">16</a></span>
+<span class="normal"><a href="#__codelineno-17-17">17</a></span>
+<span class="normal"><a href="#__codelineno-17-18">18</a></span>
+<span class="normal"><a href="#__codelineno-17-19">19</a></span>
+<span class="normal"><a href="#__codelineno-17-20">20</a></span>
+<span class="normal"><a href="#__codelineno-17-21">21</a></span>
+<span class="normal"><a href="#__codelineno-17-22">22</a></span>
+<span class="normal"><a href="#__codelineno-17-23">23</a></span>
+<span class="normal"><a href="#__codelineno-17-24">24</a></span>
+<span class="normal"><a href="#__codelineno-17-25">25</a></span>
+<span class="normal"><a href="#__codelineno-17-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1"></a>import type { Metadata, ResolvingMetadata } from &#39;next&#39;;
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2"></a>
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3"></a>type Props = {
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4"></a>  params: { id: string };
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5"></a>};
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6"></a>
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7"></a>export async function generateMetadata(
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8"></a>  { params }: Props,
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9"></a>  parent: ResolvingMetadata
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10"></a>): Promise&lt;Metadata&gt; {
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11"></a>  // Read route params
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12"></a>  const id = params.id;
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13"></a>
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14"></a>  // fetch data
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15"></a>  const product = await fetch(&#39;...&#39;).then((res) =&gt; res.json());
+</span><span id="__span-17-16"><a id="__codelineno-17-16" name="__codelineno-17-16"></a>
+</span><span id="__span-17-17"><a id="__codelineno-17-17" name="__codelineno-17-17"></a>  // Access parent metadata
+</span><span id="__span-17-18"><a id="__codelineno-17-18" name="__codelineno-17-18"></a>  const previousImages = (await parent).openGraph?.images || [];
+</span><span id="__span-17-19"><a id="__codelineno-17-19" name="__codelineno-17-19"></a>
+</span><span id="__span-17-20"><a id="__codelineno-17-20" name="__codelineno-17-20"></a>  return {
+</span><span id="__span-17-21"><a id="__codelineno-17-21" name="__codelineno-17-21"></a>    title: product.title,
+</span><span id="__span-17-22"><a id="__codelineno-17-22" name="__codelineno-17-22"></a>    openGraph: {
+</span><span id="__span-17-23"><a id="__codelineno-17-23" name="__codelineno-17-23"></a>      images: [&#39;/page-specific-image.jpg&#39;, ...previousImages],
+</span><span id="__span-17-24"><a id="__codelineno-17-24" name="__codelineno-17-24"></a>    },
+</span><span id="__span-17-25"><a id="__codelineno-17-25" name="__codelineno-17-25"></a>  };
+</span><span id="__span-17-26"><a id="__codelineno-17-26" name="__codelineno-17-26"></a>}
+</span></code></pre></div></td></tr></table></div></p>
+<h2 id="api-routes">API routes</h2>
+<p>Next.js supports creating <code>route.ts</code> (the directory should not contain <code>page.js</code>) files to define HTTP methods (GET, POST, PUT, PATCH, DELETE, HEAD, OPTIONS). This is the same as defining these routes in Express. The main difference is when you use Express, you have to host a dedicated server that needs to be running all the time. But Next.js uses AWS Lambda (serverless functions) for this.</p>
+<p>You still need API routes. Consider these two cases
+- Server side components - These can directly make the backend calls, as the server code is never shown to the client.
+- Client side components - These can directly make the backend calls, but this might requrie sharing some sensitive info to the client. For this reason, you make the call the "API Route" created by Next.js which then makes the call to your backend.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2023</span>
+      
+        <br>
+        Created:
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">November 21, 2023</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../css/tailwind_css/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Tailwind CSS">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Tailwind CSS
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../go/books/lets_go/" class="md-footer__link md-footer__link--next" aria-label="Next: Let&#39;s Go">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Let's Go
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 - Present Kushajveer Singh
+    </div>
+  
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://kushajveersingh.com" target="_blank" rel="noopener" title="Personal Website" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8h5Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://github.com/KushajveerSingh" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://linkedin.com/in/kushaj" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.indexes", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "header.autohide", "navigation.footer", "content.action.edit", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.6c14ae12.min.js"></script>
+      
+        <script src="../../../assets/javascripts/extra.js"></script>
+      
+        <script src="../../../assets/javascripts/mathjax.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+      
+        <script src="../../../assets/javascripts/tablesort.js"></script>
+      
+    
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
